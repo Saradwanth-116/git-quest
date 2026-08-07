@@ -7,6 +7,7 @@ repo before using any other module.
 from github_client import fetch_repo_files, parse_repo_url
 from embeddings import chunk_text, embed_texts
 from vector_store import add_chunks
+from vector_store import add_chunks
 
 
 def index_repo(repo_url: str) -> dict:
@@ -18,8 +19,27 @@ def index_repo(repo_url: str) -> dict:
     show progress: {"files_indexed": 42, "chunks_created": 310}
     """
     repo_url = parse_repo_url(repo_url)
-    files = fetch_repo_files(repo_url)
+    files, total_files = fetch_repo_files(repo_url)
 
+    # 1. Build the structural Graph database (Tree-Sitter + NetworkX)
+    try:
+        from graph.extract import extract_file
+        from graph.store import build_graph, save_graph
+        
+        slug = repo_url.rstrip("/").split("github.com/")[-1].removesuffix(".git")
+        repo_id = slug.replace("/", "__")
+        
+        file_nodes = []
+        for f in files:
+            source_bytes = f["content"].encode('utf-8')
+            file_nodes.append(extract_file(source_bytes, f["path"]))
+            
+        g = build_graph(file_nodes)
+        save_graph(g, repo_id)
+    except Exception as e:
+        print(f"Warning: Failed to build structural graph: {e}")
+
+    # 2. Build the semantic Vector database (ChromaDB)
     all_chunks: list[str] = []
     all_metadatas: list[dict] = []
     all_ids: list[str] = []
@@ -36,7 +56,7 @@ def index_repo(repo_url: str) -> dict:
             all_ids.append(f"{file['path']}::{i}")
 
     if not all_chunks:
-        return {"files_indexed": 0, "chunks_created": 0}
+        return {"files_indexed": 0, "chunks_created": 0, "total_repo_files": total_files}
 
     # OpenAI's embeddings endpoint accepts batches — send in groups of 100
     # to stay well under request size limits.
@@ -52,4 +72,4 @@ def index_repo(repo_url: str) -> dict:
             metadatas=all_metadatas[start:end],
         )
 
-    return {"files_indexed": len(files), "chunks_created": len(all_chunks)}
+    return {"files_indexed": len(files), "chunks_created": len(all_chunks), "total_repo_files": total_files}

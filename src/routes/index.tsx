@@ -8,20 +8,56 @@ export const Route = createFileRoute("/")({
 
 const API = "http://127.0.0.1:8000";
 
-type Section = "ask" | "issues" | "roadmap" | "pr";
+type Section = "ask" | "issues" | "roadmap" | "pr" | "blast" | "health" | "metrics";
 
-type IndexResp = { files_indexed: number; chunks_created: number };
+type IndexResp = { files_indexed: number; chunks_created: number; total_repo_files: number };
 type AskResp = { answer: string; sources: string[] };
-type IssueResp = { number: number; title: string; explanation: string };
-type RoadmapResp = { roadmap: string };
+type IssueResp = { issue_id: number | null; title: string | null; rationale: string };
+type RoadmapResp = { roadmap: string; central_files: string[] };
 type PRResp = {
   checklist: {
     has_tests: boolean;
     touches_docs: boolean;
     diff_size_lines: number;
     is_large_diff: boolean;
+    touches_security_sensitive_path?: boolean;
   };
+  verdict: "ready" | "needs_changes" | "blocked" | null;
   report: string;
+  rationale: string;
+};
+type BlastResp = {
+  nodes: {
+    path: string;
+    kind: "import" | "occurrence";
+    hops: number;
+    reason: string;
+  }[];
+  coverage_tier: string;
+  truncated: boolean;
+  error: string | null;
+};
+type HealthResp = {
+  score: number | null;
+  mislabelled: { number: number; title: string; rationale: string }[];
+  latency_days: number | null;
+  scanned: number;
+};
+type MetricsResp = {
+  targets: {
+    id: string;
+    name: string;
+    priority: string;
+    trace_count: number;
+    has_report: boolean;
+    metric?: string;
+    baseline_score?: number;
+    optimized_score?: number;
+    delta?: number;
+    generations?: number;
+    optimized?: boolean;
+    mean_f1?: number;
+  }[];
 };
 
 async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {
@@ -156,6 +192,7 @@ function IndexScreen({
               { k: "Issues", d: "Good-first-issue picks" },
               { k: "Roadmap", d: "Personalized learning path" },
               { k: "PR Check", d: "Diff readiness report" },
+              { k: "Blast", d: "Structural impact analysis" },
             ].map((x) => (
               <div
                 key={x.k}
@@ -191,6 +228,9 @@ function Workspace({
     { key: "issues", label: "Issues" },
     { key: "roadmap", label: "Roadmap" },
     { key: "pr", label: "PR Check" },
+    { key: "blast", label: "Blast Radius" },
+    { key: "health", label: "Maintainer Health" },
+    { key: "metrics", label: "Metrics" },
   ];
 
   return (
@@ -202,7 +242,7 @@ function Workspace({
             <div className="mono text-xs text-muted-foreground">INDEXED REPOSITORY</div>
             <div className="mono text-sm text-foreground truncate mt-0.5">{repoName}</div>
             <div className="mono text-xs text-muted-foreground mt-1">
-              {stats.files_indexed} files · {stats.chunks_created} chunks
+              {stats.files_indexed} / {stats.total_repo_files} files indexed · {stats.chunks_created} chunks
             </div>
           </div>
           <button
@@ -235,6 +275,9 @@ function Workspace({
           {section === "issues" && <IssuesPanel repoUrl={repoUrl} />}
           {section === "roadmap" && <RoadmapPanel repoUrl={repoUrl} />}
           {section === "pr" && <PRPanel />}
+          {section === "blast" && <BlastPanel repoUrl={repoUrl} />}
+          {section === "health" && <HealthPanel repoUrl={repoUrl} />}
+          {section === "metrics" && <MetricsPanel />}
         </div>
       </main>
     </div>
@@ -364,14 +407,16 @@ function IssuesPanel({ repoUrl }: { repoUrl: string }) {
   const [issue, setIssue] = useState<IssueResp | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [profile, setProfile] = useState("general contributor");
 
   const run = async () => {
     setLoading(true);
     setError(null);
     try {
-      const r = await apiFetch<IssueResp>(
-        `/recommend-issue?repo_url=${encodeURIComponent(repoUrl)}`,
-      );
+      const r = await apiFetch<IssueResp>("/recommend-issue", {
+        method: "POST",
+        body: JSON.stringify({ repo_url: repoUrl, user_profile: profile }),
+      });
       setIssue(r);
     } catch (err) {
       setError((err as Error).message);
@@ -384,40 +429,50 @@ function IssuesPanel({ repoUrl }: { repoUrl: string }) {
     <div className="max-w-3xl">
       <SectionHeader
         title="Recommend an issue"
-        description="Get a suggested good-first-issue based on the indexed codebase."
+        description="Get a suggested good-first-issue matched to your profile."
       />
 
-      {!issue && !loading && (
+      <div className="space-y-3 mb-6">
+        <label className="mono text-xs text-muted-foreground block">YOUR PROFILE</label>
+        <input
+          type="text"
+          value={profile}
+          onChange={(e) => setProfile(e.target.value)}
+          placeholder="e.g. Python developer new to open source, interested in testing"
+          className="mono w-full px-4 py-3 rounded-md bg-input border border-border text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition"
+          disabled={loading}
+        />
         <button
           onClick={run}
-          className="px-5 py-3 rounded-md bg-accent text-accent-foreground text-sm font-medium hover:opacity-90 transition"
+          disabled={loading}
+          className="px-5 py-3 rounded-md bg-accent text-accent-foreground text-sm font-medium hover:opacity-90 disabled:opacity-50 transition inline-flex items-center gap-2"
         >
-          Recommend an issue
+          {loading ? <><Spinner /> Matching…</> : "Recommend an issue"}
         </button>
-      )}
-
-      {loading && (
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <Spinner /> <span className="mono text-xs">finding a good match…</span>
-        </div>
-      )}
+      </div>
 
       {error && !loading && <ErrorBox message={error} />}
 
       {issue && !loading && (
         <div className="space-y-4">
-          <div className="p-6 rounded-md border border-border bg-card">
-            <div className="flex items-baseline gap-3 mb-3">
-              <span className="mono text-sm text-accent">#{issue.number}</span>
-              <h3 className="text-lg font-semibold leading-tight">{issue.title}</h3>
+          {issue.issue_id === null ? (
+            <div className="p-6 rounded-md border border-border bg-card text-sm text-muted-foreground">
+              {issue.rationale}
             </div>
-            <div className="mono text-[10px] text-muted-foreground mb-2 tracking-widest">
-              WHY IT'S A GOOD START
+          ) : (
+            <div className="p-6 rounded-md border border-border bg-card">
+              <div className="flex items-baseline gap-3 mb-3">
+                <span className="mono text-sm text-accent">#{issue.issue_id}</span>
+                <h3 className="text-lg font-semibold leading-tight">{issue.title}</h3>
+              </div>
+              <div className="mono text-[10px] text-muted-foreground mb-2 tracking-widest">
+                RATIONALE
+              </div>
+              <div className="prose-md text-sm">
+                <ReactMarkdown>{issue.rationale}</ReactMarkdown>
+              </div>
             </div>
-            <div className="prose-md text-sm">
-              <ReactMarkdown>{issue.explanation}</ReactMarkdown>
-            </div>
-          </div>
+          )}
           <button
             onClick={run}
             className="px-4 py-2 rounded-md border border-border bg-card text-sm hover:bg-muted transition"
@@ -445,7 +500,7 @@ function RoadmapPanel({ repoUrl }: { repoUrl: string }) {
         method: "POST",
         body: JSON.stringify({ repo_url: repoUrl }),
       });
-      setRoadmap(r.roadmap);
+      setRoadmap(r.roadmap || (r as any).markdown || "");
     } catch (err) {
       setError((err as Error).message);
     } finally {
@@ -481,8 +536,10 @@ function RoadmapPanel({ repoUrl }: { repoUrl: string }) {
       {error && <ErrorBox message={error} />}
 
       {roadmap && !loading && (
-        <div className="p-6 rounded-md border border-border bg-card prose-md text-sm">
-          <ReactMarkdown>{roadmap}</ReactMarkdown>
+        <div className="space-y-4">
+          <div className="p-6 rounded-md border border-border bg-card prose-md text-sm">
+            <ReactMarkdown>{roadmap}</ReactMarkdown>
+          </div>
         </div>
       )}
 
@@ -563,6 +620,15 @@ function PRPanel() {
 
       {result && !loading && (
         <div className="mt-8 space-y-6">
+          {result.verdict && (
+            <div className={`px-4 py-3 rounded-md text-sm font-medium mono border ${
+              result.verdict === "ready" ? "bg-green-500/10 text-green-500 border-green-500/20" :
+              result.verdict === "blocked" ? "bg-red-500/10 text-red-500 border-red-500/20" :
+              "bg-yellow-500/10 text-yellow-500 border-yellow-500/20"
+            }`}>
+              VERDICT: {result.verdict.toUpperCase().replace("_", " ")}
+            </div>
+          )}
           <div>
             <div className="mono text-xs text-muted-foreground mb-3 tracking-widest">
               CHECKLIST
@@ -579,6 +645,12 @@ function PRPanel() {
                 label="Diff size acceptable"
                 pass={!result.checklist.is_large_diff}
               />
+              {result.checklist.touches_security_sensitive_path !== undefined && (
+                <CheckRow
+                  label="Security sensitive path"
+                  pass={!result.checklist.touches_security_sensitive_path}
+                />
+              )}
             </div>
           </div>
 
@@ -635,6 +707,354 @@ function CheckRow({
           {pass ? "PASS" : "FAIL"}
         </span>
       )}
+    </div>
+  );
+}
+
+function BlastPanel({ repoUrl }: { repoUrl: string }) {
+  const [targets, setTargets] = useState("");
+  const [maxHops, setMaxHops] = useState(3);
+  const [result, setResult] = useState<BlastResp | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const run = async (e: FormEvent) => {
+    e.preventDefault();
+    if (!targets.trim()) return;
+    setLoading(true);
+    setError(null);
+    setResult(null);
+    try {
+      const targetList = targets.split(",").map((t) => t.trim()).filter(Boolean);
+      const r = await apiFetch<BlastResp>("/blast-radius", {
+        method: "POST",
+        body: JSON.stringify({ repo_url: repoUrl, targets: targetList, max_hops: maxHops }),
+      });
+      if (r.error) {
+        setError(r.error);
+      } else {
+        setResult(r);
+      }
+    } catch (err) {
+      setError((err as Error).message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="max-w-4xl">
+      <SectionHeader
+        title="Blast Radius Analysis"
+        description="Deterministic, multi-hop dependency and occurrence tracking using the deep graph."
+      />
+
+      <form onSubmit={run} className="space-y-4">
+        <div>
+          <label className="mono text-xs text-muted-foreground block mb-1">TARGET FILES</label>
+          <div className="flex flex-col sm:flex-row gap-2">
+            <input
+              type="text"
+              value={targets}
+              onChange={(e) => setTargets(e.target.value)}
+              placeholder="e.g. src/auth.py, src/utils.py"
+              className="mono flex-1 px-4 py-3 rounded-md bg-input border border-border text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition"
+              disabled={loading}
+            />
+            <button
+              type="submit"
+              disabled={loading || !targets.trim()}
+              className="px-5 py-3 rounded-md bg-accent text-accent-foreground text-sm font-medium hover:opacity-90 disabled:opacity-50 transition inline-flex items-center gap-2 min-w-[160px] justify-center"
+            >
+              {loading ? (
+                <>
+                  <Spinner /> Querying Graph…
+                </>
+              ) : (
+                "Analyze Impact"
+              )}
+            </button>
+          </div>
+        </div>
+        <div>
+          <label className="mono text-xs text-muted-foreground flex items-center justify-between">
+            <span>MAX HOPS: {maxHops}</span>
+            <span className="text-muted-foreground/50">Limits dependency recursion depth</span>
+          </label>
+          <input
+            type="range"
+            min="1"
+            max="10"
+            value={maxHops}
+            onChange={(e) => setMaxHops(parseInt(e.target.value))}
+            className="w-full mt-2 accent-accent"
+            disabled={loading}
+          />
+        </div>
+      </form>
+
+      {error && <div className="mt-4"><ErrorBox message={error} /></div>}
+
+      {result && !loading && (
+        <div className="mt-8">
+          <div className="flex items-center justify-between mb-4">
+            <div className="mono text-xs text-muted-foreground tracking-widest">
+              IMPACTED FILES ({result.nodes.length}{result.truncated ? "+" : ""})
+            </div>
+            <div className={`mono text-xs px-2 py-1 rounded border ${
+              result.coverage_tier === "deep" ? "bg-success/15 text-success border-success/20" : 
+              result.coverage_tier === "occurrence-only" ? "bg-yellow-500/15 text-yellow-500 border-yellow-500/20" :
+              "bg-destructive/15 text-destructive border-destructive/20"
+            }`}>
+              Tier: {result.coverage_tier}
+            </div>
+          </div>
+
+          <div className="border border-border rounded-md overflow-hidden bg-card">
+            {result.nodes.length === 0 ? (
+              <div className="p-8 text-center text-sm text-muted-foreground">
+                No impacted files found within {maxHops} hop{maxHops > 1 ? "s" : ""}.
+              </div>
+            ) : (
+              <div className="divide-y divide-border max-h-[500px] overflow-y-auto">
+                {result.nodes.map((node, idx) => (
+                  <div key={idx} className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-muted/50 transition">
+                    <div className="min-w-0">
+                      <div className="mono text-sm text-foreground truncate">{node.path}</div>
+                      <div className="text-xs text-muted-foreground mt-1 truncate">{node.reason}</div>
+                    </div>
+                    <div className="flex items-center gap-3 shrink-0">
+                      <span className={`mono text-xs px-2 py-1 rounded ${
+                        node.kind === "import" ? "bg-accent/10 text-accent" : "bg-primary/10 text-primary"
+                      }`}>
+                        {node.kind}
+                      </span>
+                      <span className="mono text-xs text-muted-foreground w-16 text-right">
+                        Hop {node.hops}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+            {result.truncated && (
+              <div className="p-3 text-center text-xs text-muted-foreground bg-muted/30 border-t border-border">
+                Results truncated to {result.nodes.length} nodes to protect performance.
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ---------------- Health Panel ---------------- */
+
+function HealthPanel({ repoUrl }: { repoUrl: string }) {
+  const [result, setResult] = useState<HealthResp | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const run = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const r = await apiFetch<HealthResp>(
+        `/maintainer-health?repo_url=${encodeURIComponent(repoUrl)}`,
+      );
+      setResult(r);
+    } catch (err) {
+      setError((err as Error).message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const scoreColor = result === null ? "text-muted-foreground" :
+    result.score === null ? "text-muted-foreground" :
+    result.score >= 0.7 ? "text-green-500" :
+    result.score >= 0.4 ? "text-yellow-500" : "text-red-500";
+
+  return (
+    <div className="max-w-4xl">
+      <SectionHeader
+        title="Maintainer Health"
+        description="LLM-scored analysis of open issues: health, mislabelling, and response latency."
+      />
+
+      <button
+        onClick={run}
+        disabled={loading}
+        className="px-5 py-3 rounded-md bg-accent text-accent-foreground text-sm font-medium hover:opacity-90 disabled:opacity-50 transition inline-flex items-center gap-2 mb-6"
+      >
+        {loading ? <><Spinner /> Scanning issues…</> : result ? "Re-scan" : "Scan repository"}
+      </button>
+
+      {error && <ErrorBox message={error} />}
+
+      {result && !loading && (
+        <div className="space-y-6">
+          <div className="grid sm:grid-cols-3 gap-4">
+            <div className="p-5 rounded-md border border-border bg-card">
+              <div className="mono text-[10px] text-muted-foreground mb-2 tracking-widest">HEALTH SCORE</div>
+              <div className={`text-3xl font-bold mono ${scoreColor}`}>
+                {result.score === null ? "—" : `${(result.score * 100).toFixed(0)}%`}
+              </div>
+              <div className="text-xs text-muted-foreground mt-1">of issues classified healthy</div>
+            </div>
+            <div className="p-5 rounded-md border border-border bg-card">
+              <div className="mono text-[10px] text-muted-foreground mb-2 tracking-widest">MEDIAN LATENCY</div>
+              <div className="text-3xl font-bold mono">
+                {result.latency_days === null ? "—" : `${result.latency_days}d`}
+              </div>
+              <div className="text-xs text-muted-foreground mt-1">creation → last update</div>
+            </div>
+            <div className="p-5 rounded-md border border-border bg-card">
+              <div className="mono text-[10px] text-muted-foreground mb-2 tracking-widest">ISSUES SCANNED</div>
+              <div className="text-3xl font-bold mono">{result.scanned}</div>
+              <div className="text-xs text-muted-foreground mt-1">open issues analyzed</div>
+            </div>
+          </div>
+
+          {result.mislabelled.length > 0 && (
+            <div>
+              <div className="mono text-xs text-muted-foreground mb-3 tracking-widest">
+                MISLABELLED ISSUES ({result.mislabelled.length})
+              </div>
+              <div className="border border-border rounded-md overflow-hidden bg-card divide-y divide-border">
+                {result.mislabelled.map((issue) => (
+                  <div key={issue.number} className="p-4">
+                    <div className="flex items-baseline gap-2 mb-1">
+                      <span className="mono text-xs text-accent">#{issue.number}</span>
+                      <span className="text-sm font-medium">{issue.title}</span>
+                    </div>
+                    <div className="text-xs text-muted-foreground">{issue.rationale}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {result.mislabelled.length === 0 && result.scanned > 0 && (
+            <div className="p-4 rounded-md border border-border bg-card text-sm text-muted-foreground">
+              ✓ No mislabelled issues found in the scanned set.
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ---------------- Metrics Panel ---------------- */
+
+function MetricsPanel() {
+  const [result, setResult] = useState<MetricsResp | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const load = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const r = await apiFetch<MetricsResp>("/metrics");
+      setResult(r);
+    } catch (err) {
+      setError((err as Error).message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Load on mount via useEffect — calling load() directly during render causes
+  // a React crash because setting state triggers re-renders before the first
+  // render is even committed.
+  useEffect(() => {
+    load();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const priorityColor = (p: string) =>
+    p === "critical" ? "text-red-500 bg-red-500/10 border-red-500/20" :
+    p === "high" ? "text-orange-500 bg-orange-500/10 border-orange-500/20" :
+    p === "medium" ? "text-yellow-500 bg-yellow-500/10 border-yellow-500/20" :
+    "text-muted-foreground bg-muted border-border";
+
+  return (
+    <div className="max-w-5xl">
+      <SectionHeader
+        title="Mutagent Reliability Dashboard"
+        description="Per-target Mutagent evaluation scores. Baseline vs. optimized prompt performance."
+      />
+
+      <button
+        onClick={load}
+        disabled={loading}
+        className="px-4 py-2 rounded-md border border-border bg-card text-xs hover:bg-muted transition mono mb-6"
+      >
+        {loading ? "Refreshing…" : "↻ Refresh"}
+      </button>
+
+      {error && <ErrorBox message={error} />}
+
+      {loading && !result && (
+        <div className="space-y-2">
+          {[...Array(6)].map((_, i) => <Skeleton key={i} className="h-14 w-full" />)}
+        </div>
+      )}
+
+      {result && (
+        <div className="border border-border rounded-md overflow-hidden bg-card">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-border">
+                <th className="px-4 py-3 text-left mono text-[10px] text-muted-foreground tracking-widest font-normal">TARGET</th>
+                <th className="px-4 py-3 text-left mono text-[10px] text-muted-foreground tracking-widest font-normal">PRIORITY</th>
+                <th className="px-4 py-3 text-right mono text-[10px] text-muted-foreground tracking-widest font-normal">TRACES</th>
+                <th className="px-4 py-3 text-right mono text-[10px] text-muted-foreground tracking-widest font-normal">BASELINE</th>
+                <th className="px-4 py-3 text-right mono text-[10px] text-muted-foreground tracking-widest font-normal">OPTIMIZED</th>
+                <th className="px-4 py-3 text-right mono text-[10px] text-muted-foreground tracking-widest font-normal">DELTA</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-border">
+              {result.targets.map((t) => (
+                <tr key={t.id} className="hover:bg-muted/30 transition">
+                  <td className="px-4 py-3">
+                    <div className="mono text-xs font-medium">{t.name}</div>
+                    <div className="mono text-[10px] text-muted-foreground">{t.id}</div>
+                  </td>
+                  <td className="px-4 py-3">
+                    <span className={`mono text-[10px] px-2 py-0.5 rounded border ${priorityColor(t.priority)}`}>
+                      {t.priority}
+                    </span>
+                  </td>
+                  <td className="px-4 py-3 text-right mono text-xs text-muted-foreground">{t.trace_count}</td>
+                  <td className="px-4 py-3 text-right mono text-xs">
+                    {t.baseline_score !== undefined ? `${(t.baseline_score * 100).toFixed(0)}%` :
+                     t.mean_f1 !== undefined ? `F1 ${t.mean_f1.toFixed(2)}` : "—"}
+                  </td>
+                  <td className="px-4 py-3 text-right mono text-xs">
+                    {t.optimized_score !== undefined ? `${(t.optimized_score * 100).toFixed(0)}%` : "—"}
+                  </td>
+                  <td className="px-4 py-3 text-right mono text-xs">
+                    {t.delta !== undefined && t.delta !== null ? (
+                      <span className={t.delta >= 0 ? "text-green-500" : "text-red-500"}>
+                        {t.delta >= 0 ? "+" : ""}{(t.delta * 100).toFixed(0)}%
+                      </span>
+                    ) : (
+                      <span className="text-muted-foreground">—</span>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      <p className="text-xs text-muted-foreground mt-4 mono">
+        Scores read from <code>backend/mutagent/reports/*.delta.json</code> — run Mutagent optimize to populate.
+      </p>
     </div>
   );
 }

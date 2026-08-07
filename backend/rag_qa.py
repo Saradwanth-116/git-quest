@@ -8,15 +8,25 @@ from github_client import parse_repo_url
 from config import settings
 from reranker import rerank_documents
 
+from hybrid_retriever import hybrid_retrieve
+
 _client = None
 
 def _get_client():
     global _client
     if _client is None:
-        _client = OpenAI(
-            api_key=settings.GROQ_API_KEY, 
-            base_url="https://api.groq.com/openai/v1"
-        )
+        if settings.OLLAMA_BASE_URL:
+            # Connect to remote Ollama (Qwen) via ngrok using OpenAI compatible endpoint
+            _client = OpenAI(
+                api_key="ollama", # Ollama doesn't require a real key
+                base_url=settings.OLLAMA_BASE_URL
+            )
+        else:
+            # Fallback to Groq
+            _client = OpenAI(
+                api_key=settings.GROQ_API_KEY, 
+                base_url="https://api.groq.com/openai/v1"
+            )
     return _client
 
 SYSTEM_PROMPT = """You are a helpful assistant answering questions about a specific
@@ -34,10 +44,11 @@ def ask_question(repo_url: str, question: str) -> dict:
         raise ValueError(f"Repo '{repo_url}' has not been indexed yet. Call /index first.")
 
     question_embedding = embed_texts([question])[0]
-    results = query(repo_url, question_embedding, top_k=settings.TOP_K)
-
-    documents = results["documents"][0]
-    metadatas = results["metadatas"][0]
+    
+    # Use Hybrid Retrieval (Vector + Graph Symbols)
+    documents, metadatas = hybrid_retrieve(
+        repo_url, question, question_embedding, top_k=settings.TOP_K
+    )
 
     documents, metadatas = rerank_documents(question, documents, metadatas, top_n=settings.RERANK_TOP_K)
 
@@ -45,8 +56,10 @@ def ask_question(repo_url: str, question: str) -> dict:
         f"[{meta['path']}]\n{doc}" for doc, meta in zip(documents, metadatas)
     )
 
+    model_name = settings.OLLAMA_MODEL if settings.OLLAMA_BASE_URL else settings.LLM_MODEL
+    
     response = _get_client().chat.completions.create(
-        model=settings.LLM_MODEL,
+        model=model_name,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": f"Context:\n{context}\n\nQuestion: {question}"},

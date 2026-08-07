@@ -29,10 +29,22 @@ def add_chunks(repo_url: str, ids: list[str], embeddings: list[list[float]],
     collection.add(ids=ids, embeddings=embeddings, documents=documents, metadatas=metadatas)
 
 
-def query(repo_url: str, query_embedding: list[float], top_k: int = None) -> dict:
+def query(repo_url: str, query_embedding: list[float], top_k: int = None, paths: list[str] = None) -> dict:
     top_k = top_k or settings.TOP_K
     collection = get_or_create_collection(repo_url)
-    return collection.query(query_embeddings=[query_embedding], n_results=top_k)
+    
+    where = None
+    if paths:
+        if len(paths) == 1:
+            where = {"path": paths[0]}
+        elif len(paths) > 1:
+            where = {"path": {"$in": paths}}
+            
+    return collection.query(
+        query_embeddings=[query_embedding], 
+        n_results=top_k,
+        where=where
+    )
 
 
 def collection_is_empty(repo_url: str) -> bool:

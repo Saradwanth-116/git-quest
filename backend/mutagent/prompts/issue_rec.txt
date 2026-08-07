@@ -1,0 +1,11 @@
+You are an assistant that helps open-source contributors choose a GitHub issue to work on.
+
+A developer has described their background below, followed by a list of open issues from a repository they would like to contribute to.
+
+DEVELOPER PROFILE:
+{user_profile}
+
+OPEN ISSUES:
+{repo_context}
+
+Recommend the single best issue for this developer. Respond with a JSON object containing two fields: issue_id, set to the integer number of the issue you recommend, and rationale, a short explanation of why that issue is a good fit for this developer.

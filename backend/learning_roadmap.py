@@ -1,49 +1,55 @@
+"""Roadmap feature — graph-informed when the repo has been indexed.
+
+Files many other files import are structurally central: the graph — not the
+model — decides what "central" means, consistent with the product's design
+thesis. Degrades explicitly, not silently, when the repo has not been indexed.
 """
-This is the Roadmap box: repo structure -> concept extraction -> sequencing -> roadmap.
-"""
-from openai import OpenAI
-from github_client import fetch_repo_files
-from config import settings
+from __future__ import annotations
 
-_client = None
+from config import settings, load_prompt, repo_id_from_url
+from clients.github_client import GitHubClient
+from clients.llm_client import complete
+from observability.tracer import trace
+from graph.store import load_graph
 
-def _get_client():
-    global _client
-    if _client is None:
-        _client = OpenAI(
-            api_key=settings.GROQ_API_KEY, 
-            base_url="https://api.groq.com/openai/v1"
-        )
-    return _client
+_MAX_CENTRAL_FILES = 8
 
-SYSTEM_PROMPT = """You create a learning roadmap for a developer who is new to this
-codebase. Based on the file list and README content given, produce:
-1. A short list of core concepts they need to understand first
-2. An ordered list of files to read, with a one-line reason for each
-Keep it concise and practical."""
+
+def _central_files(repo_url: str) -> list[str]:
+    try:
+        graph = load_graph(repo_id_from_url(repo_url))
+    except (FileNotFoundError, Exception):
+        return []
+    ranked = sorted(graph.nodes, key=lambda p: graph.in_degree(p), reverse=True)
+    return [p for p in ranked if graph.in_degree(p) > 0][:_MAX_CENTRAL_FILES]
 
 
 def generate_roadmap(repo_url: str) -> dict:
+    """Returns {roadmap: str, central_files: list[str]}.
+
+    'roadmap' key is kept for backward compatibility with the frontend.
     """
-    Returns: {"roadmap": "... full text response ..."}
-    Uses the README plus the overall file list — doesn't require the vector
-    store, so it can run even before /index if you want a quick preview.
-    """
-    files = fetch_repo_files(repo_url)
-    if not files:
-        raise ValueError("Could not read any files from this repo.")
+    gh = GitHubClient(settings.GITHUB_TOKEN)
+    repo = gh.get_repo(repo_url)
+    stats = gh.repo_stats(repo)
 
-    readme = next((f["content"] for f in files if f["path"].lower().startswith("readme")), "")
-    file_list = "\n".join(f["path"] for f in files)
-
-    user_prompt = f"README:\n{readme[:3000]}\n\nFile list:\n{file_list[:3000]}"
-
-    response = _get_client().chat.completions.create(
-        model=settings.LLM_MODEL,
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": user_prompt},
-        ],
+    central = _central_files(repo_url)
+    central_files_text = (
+        "\n".join(f"- {p}" for p in central)
+        if central
+        else "(none yet — run /index first for a graph-informed roadmap)"
     )
 
-    return {"roadmap": response.choices[0].message.content}
+    prompt = load_prompt("roadmap").format(
+        repo_name=stats["full_name"],
+        description=stats["description"] or "(no description provided)",
+        language=stats["language"] or "unknown",
+        topics=", ".join(stats["topics"]) or "none listed",
+        central_files=central_files_text,
+    )
+    markdown, latency_ms = complete(prompt, temperature=0.3, max_tokens=1024)
+
+    trace(component="roadmap", prompt=prompt, raw_output=markdown,
+          latency_ms=latency_ms, extra={"repo_url": repo_url, "central_files": central})
+
+    return {"roadmap": markdown, "central_files": central}

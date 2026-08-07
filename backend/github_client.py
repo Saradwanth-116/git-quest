@@ -45,7 +45,7 @@ def parse_repo_url(repo_url: str) -> str:
     return repo_url.replace(".git", "")
 
 
-def fetch_repo_files(repo_url: str) -> list[dict]:
+def fetch_repo_files(repo_url: str) -> tuple[list[dict], int]:
     """
     Walks the default branch and returns a list of:
       {"path": "src/app.py", "content": "...", "type": "code"}
@@ -55,6 +55,7 @@ def fetch_repo_files(repo_url: str) -> list[dict]:
     repo = client.get_repo(parse_repo_url(repo_url))
 
     results = []
+    total_files = 0
     contents = repo.get_contents("")  # start at repo root
     stack = list(contents)
 
@@ -63,6 +64,8 @@ def fetch_repo_files(repo_url: str) -> list[dict]:
         if item.type == "dir":
             stack.extend(repo.get_contents(item.path))
             continue
+            
+        total_files += 1
 
         ext = "." + item.name.split(".")[-1] if "." in item.name else ""
         if ext not in INDEXABLE_EXTENSIONS:
@@ -78,7 +81,7 @@ def fetch_repo_files(repo_url: str) -> list[dict]:
         file_type = "docs" if ext in {".md", ".mdx", ".txt", ".rst"} else "code"
         results.append({"path": item.path, "content": text, "type": file_type})
 
-    return results
+    return results, total_files
 
 
 def fetch_open_issues(repo_url: str, limit: int = 50) -> list[dict]:

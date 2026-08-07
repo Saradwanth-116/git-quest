@@ -1,0 +1,2778 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "tier": "deep",
+      "lang": "cpp",
+      "idents": [
+        "IT",
+        "REQUIRE",
+        "SUITE",
+        "__FUNCTION__",
+        "__PRETTY_FUNCTION__",
+        "cpp",
+        "strstr",
+        "unit"
+      ],
+      "defs": [],
+      "id": "test/unit/main.cpp"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "CHECK_GT",
+        "DESCRIBE",
+        "ECHO",
+        "IT",
+        "OK",
+        "REQUIRE",
+        "REQUIRE_EQ",
+        "SKIP",
+        "SUITE",
+        "UNIT_DESCRIBE",
+        "UNIT_IMPLEMENT",
+        "UNIT_TEST",
+        "UNIT__SELF_TEST",
+        "argc",
+        "argv",
+        "char",
+        "fail",
+        "failing",
+        "int",
+        "main",
+        "result",
+        "skip",
+        "skipped",
+        "start",
+        "unit",
+        "unit_main",
+        "unit_run_options",
+        "void",
+        "wow"
+      ],
+      "defs": [
+        {
+          "name": "main(int argc, const char** argv)",
+          "kind": "function",
+          "line": 6
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 10
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 11
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 12
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 13
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 14
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 15
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 16
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 17
+        },
+        {
+          "name": "(unit)",
+          "kind": "function",
+          "line": 21
+        },
+        {
+          "name": "(UNIT_TEST)",
+          "kind": "function",
+          "line": 24
+        },
+        {
+          "name": "(UNIT_DESCRIBE)",
+          "kind": "function",
+          "line": 30
+        },
+        {
+          "name": "(SKIP)",
+          "kind": "function",
+          "line": 53
+        }
+      ],
+      "id": "test/unit/main.c"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "IT",
+        "REQUIRE_EQ",
+        "SUITE",
+        "dhh",
+        "fun__is",
+        "fun_statics",
+        "i1",
+        "i2",
+        "int"
+      ],
+      "defs": [
+        {
+          "name": "(fun_statics)",
+          "kind": "function",
+          "line": 5
+        }
+      ],
+      "id": "test/unit/fun.c"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "CHECK",
+        "CHECK_EQ",
+        "CHECK_FALSE",
+        "CHECK_GE",
+        "CHECK_GT",
+        "CHECK_LE",
+        "CHECK_LT",
+        "CHECK_NE",
+        "EXIT_FAILURE",
+        "IT",
+        "REQUIRE",
+        "REQUIRE_EQ",
+        "REQUIRE_FALSE",
+        "REQUIRE_GE",
+        "REQUIRE_GT",
+        "REQUIRE_LE",
+        "REQUIRE_LT",
+        "REQUIRE_NE",
+        "SKIP",
+        "SUITE",
+        "WARN",
+        "WARN_EQ",
+        "WARN_FALSE",
+        "WARN_GE",
+        "WARN_GT",
+        "WARN_LE",
+        "WARN_LT",
+        "WARN_NE",
+        "a",
+        "alpha",
+        "asserts",
+        "b",
+        "beta",
+        "bird",
+        "cat",
+        "char",
+        "dog",
+        "double",
+        "exit",
+        "f",
+        "failing",
+        "int",
+        "omega",
+        "ptr",
+        "ptr1",
+        "ptr2",
+        "s",
+        "str",
+        "string",
+        "u",
+        "v1",
+        "v2",
+        "void",
+        "zero"
+      ],
+      "defs": [
+        {
+          "name": "(asserts)",
+          "kind": "function",
+          "line": 5
+        }
+      ],
+      "id": "test/unit/asserts.c"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": "test/unit/CMakeLists.txt"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "IT",
+        "REQUIRE",
+        "SUITE",
+        "UNIT_MAIN",
+        "fail"
+      ],
+      "defs": [
+        {
+          "name": "(fail)",
+          "kind": "function",
+          "line": 5
+        }
+      ],
+      "id": "test/fail/main.c"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": "test/fail/CMakeLists.txt"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": "test/CMakeLists.txt"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "UNIT_IMPL",
+        "UNIT_IMPLEMENT",
+        "UNIT_MAIN",
+        "UNIT_TESTING",
+        "UNIT_VERSION"
+      ],
+      "defs": [],
+      "id": "src/unit.h"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "ASSERTION",
+        "BEGIN",
+        "BinaryOp",
+        "C",
+        "CLOCK_REALTIME",
+        "ECHO",
+        "END",
+        "EXIT_FAILURE",
+        "EXIT_SUCCESS",
+        "FAIL",
+        "FormatType",
+        "Func",
+        "S",
+        "SETUP",
+        "SHUTDOWN",
+        "TIME_UTC",
+        "Tag",
+        "Type",
+        "UNIT_DEFAULT_ARGS",
+        "UNIT_MAIN",
+        "UNIT_NO_TIME",
+        "UNIT_STATUS_FAILED",
+        "UNIT_STATUS_RUN",
+        "UNIT_STATUS_SKIPPED",
+        "UNIT_STATUS_SUCCESS",
+        "UNIT_TRY_SCOPE",
+        "UNIT__EACH_PRINTER",
+        "UNIT__FOR_ASSERTS",
+        "UNIT__IMPLEMENTED",
+        "UNIT__IMPLEMENT_ASSERT",
+        "UNIT__LEVEL_REQUIRE",
+        "UNIT__LEVEL_WARN",
+        "UNIT__MSG_USAGE",
+        "UNIT__MSG_VERSION",
+        "UNIT__SELF_TEST",
+        "UNIT__TYPE_TEST",
+        "UnaryOp",
+        "_WIN32",
+        "__cplusplus",
+        "a",
+        "add_child",
+        "alias",
+        "animate",
+        "argc",
+        "args",
+        "argv",
+        "ascii",
+        "assert_comment",
+        "assert_desc",
+        "assert_file",
+        "assert_level",
+        "assert_line",
+        "assert_status",
+        "beautify_name",
+        "bool",
+        "callback",
+        "cargc",
+        "cargv",
+        "char",
+        "child",
+        "children",
+        "clock_gettime",
+        "comment",
+        "desc",
+        "doctest_xml",
+        "double",
+        "elapsed",
+        "failed",
+        "failing",
+        "false",
+        "file",
+        "find_bool_arg",
+        "fmt",
+        "fn",
+        "fprintf",
+        "fputs",
+        "get_last_child",
+        "h",
+        "help",
+        "i",
+        "int",
+        "l",
+        "last",
+        "level",
+        "line",
+        "list",
+        "msg",
+        "n",
+        "name",
+        "next",
+        "options",
+        "out_options",
+        "parent",
+        "passed",
+        "prev",
+        "printer",
+        "printer_def",
+        "printer_tracing",
+        "printer_xml_doctest",
+        "program",
+        "q",
+        "quiet",
+        "run",
+        "s_buffer",
+        "seed",
+        "short_filename",
+        "short_filenames",
+        "skip",
+        "srand",
+        "state",
+        "status",
+        "stdout",
+        "strstr",
+        "suite",
+        "t",
+        "t0",
+        "time",
+        "timespec",
+        "timespec_get",
+        "total",
+        "trace",
+        "true",
+        "ts",
+        "tv_nsec",
+        "tv_sec",
+        "type",
+        "u",
+        "unit",
+        "unit__begin",
+        "unit__cmd",
+        "unit__echo",
+        "unit__end",
+        "unit__fail_impl",
+        "unit__init_printers",
+        "unit__op_expl",
+        "unit__op_nexpl",
+        "unit__opts",
+        "unit__parse_args",
+        "unit__prepare_assert",
+        "unit__printers",
+        "unit__setup_args",
+        "unit__time",
+        "unit__vbprintf",
+        "unit_cur",
+        "unit_main",
+        "unit_printer",
+        "unit_run_options",
+        "unit_test",
+        "unit_tests",
+        "v",
+        "va_end",
+        "va_list",
+        "va_start",
+        "var",
+        "version",
+        "void",
+        "vsnprintf"
+      ],
+      "defs": [
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 10
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 11
+        },
+        {
+          "name": "* unit__vbprintf(const char* fmt, va_list args)",
+          "kind": "function",
+          "line": 14
+        },
+        {
+          "name": "unit_printer",
+          "kind": "struct",
+          "line": 44
+        },
+        {
+          "name": "unit__prepare_assert(int level, const char* file, int line, const char* comment, const char* desc)",
+          "kind": "function",
+          "line": 49
+        },
+        {
+          "name": "unit__fail_impl(const char* fmt, ...)",
+          "kind": "function",
+          "line": 65
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 74
+        },
+        {
+          "name": "unit__time(double prev)",
+          "kind": "function",
+          "line": 107
+        },
+        {
+          "name": "timespec",
+          "kind": "struct",
+          "line": 112
+        },
+        {
+          "name": "* get_last_child(struct unit_test* children)",
+          "kind": "function",
+          "line": 125
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 125
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 125
+        },
+        {
+          "name": "add_child(struct unit_test* parent, struct unit_test* child)",
+          "kind": "function",
+          "line": 132
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 132
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 132
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 135
+        },
+        {
+          "name": "unit__begin(struct unit_test* unit)",
+          "kind": "function",
+          "line": 146
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 146
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 158
+        },
+        {
+          "name": "unit__end(struct unit_test* unit)",
+          "kind": "function",
+          "line": 167
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 167
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 172
+        },
+        {
+          "name": "unit__echo(const char* msg)",
+          "kind": "function",
+          "line": 181
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 185
+        },
+        {
+          "name": "unit__init_printers(void)",
+          "kind": "function",
+          "line": 187
+        },
+        {
+          "name": "unit_printer",
+          "kind": "struct",
+          "line": 188
+        },
+        {
+          "name": "unit__cmd(struct unit_run_options options)",
+          "kind": "function",
+          "line": 208
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 208
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 218
+        },
+        {
+          "name": "unit_main(struct unit_run_options options)",
+          "kind": "function",
+          "line": 227
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 227
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 239
+        },
+        {
+          "name": "find_bool_arg(int argc, const char** argv, int* var, const char* name, const char* alias)",
+          "kind": "function",
+          "line": 251
+        },
+        {
+          "name": "unit__parse_args(int argc, const char** argv, struct unit_run_options* out_options)",
+          "kind": "function",
+          "line": 270
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 270
+        },
+        {
+          "name": "unit__setup_args(int argc, const char** argv, struct unit_run_options* out_options)",
+          "kind": "function",
+          "line": 283
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 283
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 284
+        }
+      ],
+      "id": "src/unit.c"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "argc",
+        "argv",
+        "char",
+        "int",
+        "main",
+        "options",
+        "unit__setup_args",
+        "unit_main",
+        "unit_run_options"
+      ],
+      "defs": [
+        {
+          "name": "main(int argc, const char** argv)",
+          "kind": "function",
+          "line": 1
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 2
+        }
+      ],
+      "id": "src/unit-main.c"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "Description",
+        "Name",
+        "UNIT_CHECK",
+        "UNIT_CHECK_EQ",
+        "UNIT_CHECK_FALSE",
+        "UNIT_CHECK_GE",
+        "UNIT_CHECK_GT",
+        "UNIT_CHECK_LE",
+        "UNIT_CHECK_LT",
+        "UNIT_CHECK_NE",
+        "UNIT_DESCRIBE",
+        "UNIT_ECHO",
+        "UNIT_REQUIRE",
+        "UNIT_REQUIRE_EQ",
+        "UNIT_REQUIRE_FALSE",
+        "UNIT_REQUIRE_GE",
+        "UNIT_REQUIRE_GT",
+        "UNIT_REQUIRE_LE",
+        "UNIT_REQUIRE_LT",
+        "UNIT_REQUIRE_NE",
+        "UNIT_SKIP",
+        "UNIT_SUITE",
+        "UNIT_TEST",
+        "UNIT_WARN",
+        "UNIT_WARN_EQ",
+        "UNIT_WARN_FALSE",
+        "UNIT_WARN_GE",
+        "UNIT_WARN_GT",
+        "UNIT_WARN_LE",
+        "UNIT_WARN_LT",
+        "UNIT_WARN_NE",
+        "UNIT__CONCAT",
+        "UNIT__CONCAT_",
+        "UNIT__NOOP",
+        "a",
+        "b",
+        "unit_main",
+        "x"
+      ],
+      "defs": [],
+      "id": "src/unit-disabled.h"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "Assertion",
+        "C",
+        "Comment",
+        "Desc",
+        "Description",
+        "Level",
+        "Name",
+        "Op",
+        "Tag",
+        "Type",
+        "UNIT_CHECK",
+        "UNIT_CHECK_EQ",
+        "UNIT_CHECK_FALSE",
+        "UNIT_CHECK_GE",
+        "UNIT_CHECK_GT",
+        "UNIT_CHECK_LE",
+        "UNIT_CHECK_LT",
+        "UNIT_CHECK_NE",
+        "UNIT_DESCRIBE",
+        "UNIT_ECHO",
+        "UNIT_H",
+        "UNIT_REQUIRE",
+        "UNIT_REQUIRE_EQ",
+        "UNIT_REQUIRE_FALSE",
+        "UNIT_REQUIRE_GE",
+        "UNIT_REQUIRE_GT",
+        "UNIT_REQUIRE_LE",
+        "UNIT_REQUIRE_LT",
+        "UNIT_REQUIRE_NE",
+        "UNIT_SCOPE",
+        "UNIT_SKIP",
+        "UNIT_STATUS_FAILED",
+        "UNIT_STATUS_RUN",
+        "UNIT_STATUS_SKIPPED",
+        "UNIT_STATUS_SUCCESS",
+        "UNIT_SUITE",
+        "UNIT_SUITE_",
+        "UNIT_TEST",
+        "UNIT_TESTING",
+        "UNIT_TRY_SCOPE",
+        "UNIT_WARN",
+        "UNIT_WARN_EQ",
+        "UNIT_WARN_FALSE",
+        "UNIT_WARN_GE",
+        "UNIT_WARN_GT",
+        "UNIT_WARN_LE",
+        "UNIT_WARN_LT",
+        "UNIT_WARN_NE",
+        "UNIT__ASSERT",
+        "UNIT__ASSERT_LAZY",
+        "UNIT__CMP",
+        "UNIT__CONCAT",
+        "UNIT__DECL",
+        "UNIT__DEFINE_ASSERT",
+        "UNIT__FOR_ASSERTS",
+        "UNIT__IS_NOT_EMPTY_STR",
+        "UNIT__IS_TRUE",
+        "UNIT__LEVEL_CHECK",
+        "UNIT__LEVEL_REQUIRE",
+        "UNIT__LEVEL_WARN",
+        "UNIT__OP_EQ",
+        "UNIT__OP_FALSE",
+        "UNIT__OP_GE",
+        "UNIT__OP_GT",
+        "UNIT__OP_LE",
+        "UNIT__OP_LT",
+        "UNIT__OP_NE",
+        "UNIT__OP_TRUE",
+        "UNIT__PRINTER_ASSERTION",
+        "UNIT__PRINTER_BEGIN",
+        "UNIT__PRINTER_ECHO",
+        "UNIT__PRINTER_END",
+        "UNIT__PRINTER_FAIL",
+        "UNIT__PRINTER_SETUP",
+        "UNIT__PRINTER_SHUTDOWN",
+        "UNIT__SCOPE_BODY",
+        "UNIT__SELECT_ASSERT",
+        "UNIT__STR",
+        "UNIT__STRCMP",
+        "UNIT__SUITE",
+        "UNIT__TRY_BODY",
+        "UNIT__TYPE_CASE",
+        "UNIT__TYPE_TEST",
+        "UNIT__X_CONCAT",
+        "UNIT__X_STR",
+        "Var",
+        "_",
+        "__cplusplus",
+        "a",
+        "animate",
+        "ascii",
+        "assert_comment",
+        "assert_desc",
+        "assert_file",
+        "assert_level",
+        "assert_line",
+        "assert_status",
+        "b",
+        "begin",
+        "bool",
+        "callback",
+        "char",
+        "children",
+        "cmd",
+        "comment",
+        "desc",
+        "doctest_xml",
+        "double",
+        "dummy__",
+        "elapsed",
+        "end",
+        "failing",
+        "file",
+        "fn",
+        "help",
+        "int",
+        "level",
+        "line",
+        "list",
+        "macro",
+        "msg",
+        "name",
+        "next",
+        "options",
+        "parent",
+        "passed",
+        "program",
+        "quiet",
+        "seed",
+        "short_filenames",
+        "skip",
+        "state",
+        "status",
+        "t0",
+        "total",
+        "trace",
+        "type",
+        "unit",
+        "unit__begin",
+        "unit__echo",
+        "unit__end",
+        "unit__options",
+        "unit__opts",
+        "unit__prepare_assert",
+        "unit_cur",
+        "unit_main",
+        "unit_printer",
+        "unit_run_options",
+        "unit_test",
+        "unit_tests",
+        "version",
+        "void",
+        "x"
+      ],
+      "defs": [
+        {
+          "name": "unit__options",
+          "kind": "struct",
+          "line": 60
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 66
+        },
+        {
+          "name": "unit__options",
+          "kind": "struct",
+          "line": 74
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 79
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 80
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 81
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 100
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 101
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 103
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 117
+        },
+        {
+          "name": "unit_printer",
+          "kind": "struct",
+          "line": 119
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 120
+        },
+        {
+          "name": "unit_printer",
+          "kind": "struct",
+          "line": 122
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 125
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 127
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 131
+        }
+      ],
+      "id": "src/unit-def.h"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "CHECK",
+        "CHECK_EQ",
+        "CHECK_FALSE",
+        "CHECK_GE",
+        "CHECK_GT",
+        "CHECK_LE",
+        "CHECK_LT",
+        "CHECK_NE",
+        "DESCRIBE",
+        "ECHO",
+        "IT",
+        "REQUIRE",
+        "REQUIRE_EQ",
+        "REQUIRE_FALSE",
+        "REQUIRE_GE",
+        "REQUIRE_GT",
+        "REQUIRE_LE",
+        "REQUIRE_LT",
+        "REQUIRE_NE",
+        "SKIP",
+        "SUITE",
+        "TEST",
+        "WARN",
+        "WARN_EQ",
+        "WARN_FALSE",
+        "WARN_GE",
+        "WARN_GT",
+        "WARN_LE",
+        "WARN_LT",
+        "WARN_NE"
+      ],
+      "defs": [],
+      "id": "src/unit-alias.h"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "CHECK_EQ",
+        "DESCRIBE",
+        "IT",
+        "REQUIRE_EQ",
+        "UNIT_DESCRIBE",
+        "UNIT_SUITE",
+        "a",
+        "along",
+        "animate",
+        "ascii",
+        "beautify_filename",
+        "beautify_name",
+        "bool",
+        "char",
+        "doctest_xml",
+        "find_bool_arg",
+        "get_spaces",
+        "int",
+        "name",
+        "options",
+        "prev",
+        "quiet",
+        "short_filename",
+        "short_filenames",
+        "t",
+        "temp",
+        "trace",
+        "unit__opts",
+        "unit__parse_args",
+        "unit_internals",
+        "unit_run_options",
+        "unit_spaces",
+        "val"
+      ],
+      "defs": [
+        {
+          "name": "(unit_internals)",
+          "kind": "function",
+          "line": 1
+        },
+        {
+          "name": "(beautify_filename)",
+          "kind": "function",
+          "line": 2
+        },
+        {
+          "name": "(beautify_name)",
+          "kind": "function",
+          "line": 19
+        },
+        {
+          "name": "(get_spaces)",
+          "kind": "function",
+          "line": 27
+        },
+        {
+          "name": "(find_bool_arg)",
+          "kind": "function",
+          "line": 35
+        },
+        {
+          "name": "(unit__parse_args)",
+          "kind": "function",
+          "line": 53
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 55
+        }
+      ],
+      "id": "src/self-test.c"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "FILE",
+        "ICON_ASSERT",
+        "ICON_FAIL",
+        "ICON_MSG",
+        "ICON_OK",
+        "ICON_RUN",
+        "ICON_SKIP",
+        "REQUIRE",
+        "SubCase",
+        "TestCase",
+        "TestSuite",
+        "UNIT_COLOR_BOLD",
+        "UNIT_COLOR_COMMENT",
+        "UNIT_COLOR_DESC",
+        "UNIT_COLOR_DIM",
+        "UNIT_COLOR_FAIL",
+        "UNIT_COLOR_INVERT_PASS",
+        "UNIT_COLOR_LABEL_FAIL",
+        "UNIT_COLOR_LABEL_PASS",
+        "UNIT_COLOR_LABEL_RUNS",
+        "UNIT_COLOR_LABEL_SKIP",
+        "UNIT_COLOR_MAYBE",
+        "UNIT_COLOR_RESET",
+        "UNIT_COLOR_SUCCESS",
+        "UNIT_COLOR_UNDERLINE",
+        "UNIT_STATUS_FAILED",
+        "UNIT_STATUS_RUN",
+        "UNIT_STATUS_SKIPPED",
+        "UNIT_STATUS_SUCCESS",
+        "UNIT_VERSION",
+        "UNIT__PRINTER_ASSERTION",
+        "UNIT__PRINTER_BEGIN",
+        "UNIT__PRINTER_ECHO",
+        "UNIT__PRINTER_END",
+        "UNIT__PRINTER_FAIL",
+        "UNIT__PRINTER_SETUP",
+        "UNIT__PRINTER_SHUTDOWN",
+        "UNIT__TYPE_CASE",
+        "UNIT__TYPE_TEST",
+        "_WIN32",
+        "animate",
+        "ascii",
+        "assert_comment",
+        "assert_desc",
+        "assert_file",
+        "assert_line",
+        "assert_status",
+        "beautify_filename",
+        "beautify_name",
+        "begin_style",
+        "char",
+        "child",
+        "children",
+        "cm",
+        "cmd",
+        "def_depth",
+        "delta",
+        "desc",
+        "doctest_get_node_type",
+        "double",
+        "elapsed",
+        "elapsed_time",
+        "end_style",
+        "f",
+        "false",
+        "fancy",
+        "fclose",
+        "fflush",
+        "file",
+        "fmemopen",
+        "fprintf",
+        "fputc",
+        "fputs",
+        "ftell",
+        "get_spaces",
+        "icon",
+        "int",
+        "lbl",
+        "len",
+        "line",
+        "msg",
+        "n",
+        "name",
+        "nanos",
+        "nanosleep",
+        "next",
+        "node",
+        "p",
+        "parent",
+        "passed",
+        "pos",
+        "print_elapsed_time",
+        "print_label",
+        "print_node",
+        "print_text",
+        "print_wait",
+        "printer_def",
+        "printer_def_begin",
+        "printer_def_end",
+        "printer_def_fail",
+        "printer_tracing",
+        "printer_xml_doctest",
+        "seconds",
+        "secs",
+        "short_filename",
+        "short_filenames",
+        "status",
+        "stdout",
+        "strrchr",
+        "style",
+        "test",
+        "text",
+        "timespec",
+        "total",
+        "trace_depth",
+        "trace_spaces",
+        "true",
+        "ts",
+        "type",
+        "u",
+        "unit",
+        "unit__breadcrumbs",
+        "unit__fails",
+        "unit__fails_mem",
+        "unit__opts",
+        "unit__sleep",
+        "unit__spaces",
+        "unit_cur",
+        "unit_spaces",
+        "unit_test",
+        "unit_tests",
+        "void",
+        "w"
+      ],
+      "defs": [
+        {
+          "name": "* icon(int type)",
+          "kind": "function",
+          "line": 35
+        },
+        {
+          "name": "unit__sleep(double seconds)",
+          "kind": "function",
+          "line": 57
+        },
+        {
+          "name": "timespec",
+          "kind": "struct",
+          "line": 61
+        },
+        {
+          "name": "print_wait(FILE* f)",
+          "kind": "function",
+          "line": 66
+        },
+        {
+          "name": "begin_style(FILE* file, const char* style)",
+          "kind": "function",
+          "line": 73
+        },
+        {
+          "name": "end_style(FILE* file)",
+          "kind": "function",
+          "line": 79
+        },
+        {
+          "name": "print_text(FILE* file, const char* text, const char* style)",
+          "kind": "function",
+          "line": 85
+        },
+        {
+          "name": "* get_spaces(int n)",
+          "kind": "function",
+          "line": 105
+        },
+        {
+          "name": "print_elapsed_time(FILE* f, double elapsed_time)",
+          "kind": "function",
+          "line": 112
+        },
+        {
+          "name": "* beautify_name(const char* name)",
+          "kind": "function",
+          "line": 120
+        },
+        {
+          "name": "* short_filename(const char* file)",
+          "kind": "function",
+          "line": 124
+        },
+        {
+          "name": "* beautify_filename(const char* file)",
+          "kind": "function",
+          "line": 134
+        },
+        {
+          "name": "print_label(FILE* f, struct unit_test* node)",
+          "kind": "function",
+          "line": 138
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 138
+        },
+        {
+          "name": "printer_def_begin(struct unit_test* unit)",
+          "kind": "function",
+          "line": 174
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 174
+        },
+        {
+          "name": "* unit__spaces(int delta)",
+          "kind": "function",
+          "line": 183
+        },
+        {
+          "name": "print_node(struct unit_test* node)",
+          "kind": "function",
+          "line": 187
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 187
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 205
+        },
+        {
+          "name": "printer_def_end(struct unit_test* unit)",
+          "kind": "function",
+          "line": 211
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 211
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 228
+        },
+        {
+          "name": "unit__breadcrumbs(FILE* f, struct unit_test* test)",
+          "kind": "function",
+          "line": 243
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 243
+        },
+        {
+          "name": "printer_def_fail(struct unit_test* unit, const char* msg)",
+          "kind": "function",
+          "line": 251
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 251
+        },
+        {
+          "name": "printer_def(int cmd, struct unit_test* unit, const char* msg)",
+          "kind": "function",
+          "line": 279
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 279
+        },
+        {
+          "name": "* trace_spaces(int delta)",
+          "kind": "function",
+          "line": 305
+        },
+        {
+          "name": "printer_tracing(int cmd, struct unit_test* unit, const char* msg)",
+          "kind": "function",
+          "line": 309
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 309
+        },
+        {
+          "name": "* doctest_get_node_type(struct unit_test* node)",
+          "kind": "function",
+          "line": 356
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 356
+        },
+        {
+          "name": "printer_xml_doctest(int cmd, struct unit_test* node, const char* msg)",
+          "kind": "function",
+          "line": 366
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 366
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 380
+        }
+      ],
+      "id": "src/printer.c"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "FILE",
+        "GetTempFileNameA",
+        "GetTempPathA",
+        "MAX_PATH",
+        "MemTF_",
+        "_O_BINARY",
+        "_O_CREAT",
+        "_O_NOINHERIT",
+        "_O_RDWR",
+        "_O_SHORT_LIVED",
+        "_O_TEMPORARY",
+        "_SH_DENYRW",
+        "_S_IREAD",
+        "_S_IWRITE",
+        "_WIN32",
+        "_close",
+        "_fdopen",
+        "_sopen_s",
+        "buf",
+        "char",
+        "fd",
+        "fmemopen",
+        "fn",
+        "fp",
+        "fwrite",
+        "int",
+        "len",
+        "pfd",
+        "retner",
+        "rewind",
+        "size_t",
+        "tfname",
+        "tp",
+        "type",
+        "void"
+      ],
+      "defs": [
+        {
+          "name": "* fmemopen(void* buf, size_t len, const char* type)",
+          "kind": "function",
+          "line": 12
+        }
+      ],
+      "id": "src/fmemopen.c"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "UNIT_MAIN",
+        "UNIT_TESTING",
+        "UNIT__SELF_TEST"
+      ],
+      "defs": [],
+      "id": "src/all.c"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": "src/CMakeLists.txt"
+    },
+    {
+      "tier": "deep",
+      "lang": "javascript",
+      "idents": [
+        "__dirname",
+        "chdir",
+        "child_process",
+        "cwd",
+        "execSync",
+        "inherit",
+        "path",
+        "process",
+        "require",
+        "resolve",
+        "run",
+        "stdio"
+      ],
+      "defs": [],
+      "id": "scripts/test.js"
+    },
+    {
+      "tier": "deep",
+      "lang": "javascript",
+      "idents": [
+        "CTEST_OUTPUT_ON_FAILURE",
+        "EMSDK",
+        "HOME",
+        "TRUE",
+        "__dirname",
+        "chdir",
+        "child_process",
+        "cwd",
+        "env",
+        "execSync",
+        "getEmscriptenSdkPath",
+        "inherit",
+        "join",
+        "path",
+        "process",
+        "require",
+        "resolve",
+        "run",
+        "stdio",
+        "toolchainPath"
+      ],
+      "defs": [
+        {
+          "name": "getEmscriptenSdkPath",
+          "kind": "function",
+          "line": 7
+        }
+      ],
+      "id": "scripts/test-wasm.js"
+    },
+    {
+      "tier": "deep",
+      "lang": "javascript",
+      "idents": [
+        "DESCRIPTION",
+        "JSON",
+        "VERSION",
+        "_",
+        "__dirname",
+        "amalgamate",
+        "code",
+        "description",
+        "dirname",
+        "file",
+        "filepath",
+        "fs",
+        "gm",
+        "id",
+        "inject",
+        "input",
+        "output",
+        "parse",
+        "path",
+        "pkg",
+        "re",
+        "readFileSync",
+        "replace",
+        "require",
+        "resolve",
+        "vars",
+        "version",
+        "writeFileSync"
+      ],
+      "defs": [
+        {
+          "name": "inject",
+          "kind": "function",
+          "line": 11
+        },
+        {
+          "name": "amalgamate",
+          "kind": "function",
+          "line": 17
+        }
+      ],
+      "id": "scripts/amalgamate.js"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": "package.json"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "ASSERTION",
+        "Assertion",
+        "BEGIN",
+        "BinaryOp",
+        "C",
+        "CHECK",
+        "CHECK_EQ",
+        "CHECK_FALSE",
+        "CHECK_GE",
+        "CHECK_GT",
+        "CHECK_LE",
+        "CHECK_LT",
+        "CHECK_NE",
+        "CLOCK_REALTIME",
+        "Comment",
+        "DESCRIBE",
+        "Desc",
+        "Description",
+        "ECHO",
+        "END",
+        "EXIT_FAILURE",
+        "EXIT_SUCCESS",
+        "FAIL",
+        "FILE",
+        "FormatType",
+        "Func",
+        "GetTempFileNameA",
+        "GetTempPathA",
+        "ICON_ASSERT",
+        "ICON_FAIL",
+        "ICON_MSG",
+        "ICON_OK",
+        "ICON_RUN",
+        "ICON_SKIP",
+        "IT",
+        "Level",
+        "MAX_PATH",
+        "MemTF_",
+        "Name",
+        "Op",
+        "REQUIRE",
+        "REQUIRE_EQ",
+        "REQUIRE_FALSE",
+        "REQUIRE_GE",
+        "REQUIRE_GT",
+        "REQUIRE_LE",
+        "REQUIRE_LT",
+        "REQUIRE_NE",
+        "S",
+        "SETUP",
+        "SHUTDOWN",
+        "SKIP",
+        "SUITE",
+        "SubCase",
+        "TEST",
+        "TIME_UTC",
+        "Tag",
+        "TestCase",
+        "TestSuite",
+        "Type",
+        "UNIT_CHECK",
+        "UNIT_CHECK_EQ",
+        "UNIT_CHECK_FALSE",
+        "UNIT_CHECK_GE",
+        "UNIT_CHECK_GT",
+        "UNIT_CHECK_LE",
+        "UNIT_CHECK_LT",
+        "UNIT_CHECK_NE",
+        "UNIT_COLOR_BOLD",
+        "UNIT_COLOR_COMMENT",
+        "UNIT_COLOR_DESC",
+        "UNIT_COLOR_DIM",
+        "UNIT_COLOR_FAIL",
+        "UNIT_COLOR_INVERT_PASS",
+        "UNIT_COLOR_LABEL_FAIL",
+        "UNIT_COLOR_LABEL_PASS",
+        "UNIT_COLOR_LABEL_RUNS",
+        "UNIT_COLOR_LABEL_SKIP",
+        "UNIT_COLOR_MAYBE",
+        "UNIT_COLOR_RESET",
+        "UNIT_COLOR_SUCCESS",
+        "UNIT_COLOR_UNDERLINE",
+        "UNIT_DEFAULT_ARGS",
+        "UNIT_DESCRIBE",
+        "UNIT_ECHO",
+        "UNIT_H",
+        "UNIT_IMPL",
+        "UNIT_IMPLEMENT",
+        "UNIT_MAIN",
+        "UNIT_NO_TIME",
+        "UNIT_REQUIRE",
+        "UNIT_REQUIRE_EQ",
+        "UNIT_REQUIRE_FALSE",
+        "UNIT_REQUIRE_GE",
+        "UNIT_REQUIRE_GT",
+        "UNIT_REQUIRE_LE",
+        "UNIT_REQUIRE_LT",
+        "UNIT_REQUIRE_NE",
+        "UNIT_SCOPE",
+        "UNIT_SKIP",
+        "UNIT_STATUS_FAILED",
+        "UNIT_STATUS_RUN",
+        "UNIT_STATUS_SKIPPED",
+        "UNIT_STATUS_SUCCESS",
+        "UNIT_SUITE",
+        "UNIT_SUITE_",
+        "UNIT_TEST",
+        "UNIT_TESTING",
+        "UNIT_TRY_SCOPE",
+        "UNIT_VERSION",
+        "UNIT_WARN",
+        "UNIT_WARN_EQ",
+        "UNIT_WARN_FALSE",
+        "UNIT_WARN_GE",
+        "UNIT_WARN_GT",
+        "UNIT_WARN_LE",
+        "UNIT_WARN_LT",
+        "UNIT_WARN_NE",
+        "UNIT__ASSERT",
+        "UNIT__ASSERT_LAZY",
+        "UNIT__CMP",
+        "UNIT__CONCAT",
+        "UNIT__CONCAT_",
+        "UNIT__DECL",
+        "UNIT__DEFINE_ASSERT",
+        "UNIT__EACH_PRINTER",
+        "UNIT__FOR_ASSERTS",
+        "UNIT__IMPLEMENTED",
+        "UNIT__IMPLEMENT_ASSERT",
+        "UNIT__IS_NOT_EMPTY_STR",
+        "UNIT__IS_TRUE",
+        "UNIT__LEVEL_CHECK",
+        "UNIT__LEVEL_REQUIRE",
+        "UNIT__LEVEL_WARN",
+        "UNIT__MSG_USAGE",
+        "UNIT__MSG_VERSION",
+        "UNIT__NOOP",
+        "UNIT__OP_EQ",
+        "UNIT__OP_FALSE",
+        "UNIT__OP_GE",
+        "UNIT__OP_GT",
+        "UNIT__OP_LE",
+        "UNIT__OP_LT",
+        "UNIT__OP_NE",
+        "UNIT__OP_TRUE",
+        "UNIT__PRINTER_ASSERTION",
+        "UNIT__PRINTER_BEGIN",
+        "UNIT__PRINTER_ECHO",
+        "UNIT__PRINTER_END",
+        "UNIT__PRINTER_FAIL",
+        "UNIT__PRINTER_SETUP",
+        "UNIT__PRINTER_SHUTDOWN",
+        "UNIT__SCOPE_BODY",
+        "UNIT__SELECT_ASSERT",
+        "UNIT__SELF_TEST",
+        "UNIT__STR",
+        "UNIT__STRCMP",
+        "UNIT__SUITE",
+        "UNIT__TRY_BODY",
+        "UNIT__TYPE_CASE",
+        "UNIT__TYPE_TEST",
+        "UNIT__X_CONCAT",
+        "UNIT__X_STR",
+        "UnaryOp",
+        "Var",
+        "WARN",
+        "WARN_EQ",
+        "WARN_FALSE",
+        "WARN_GE",
+        "WARN_GT",
+        "WARN_LE",
+        "WARN_LT",
+        "WARN_NE",
+        "_",
+        "_O_BINARY",
+        "_O_CREAT",
+        "_O_NOINHERIT",
+        "_O_RDWR",
+        "_O_SHORT_LIVED",
+        "_O_TEMPORARY",
+        "_SH_DENYRW",
+        "_S_IREAD",
+        "_S_IWRITE",
+        "_WIN32",
+        "__cplusplus",
+        "_close",
+        "_fdopen",
+        "_sopen_s",
+        "a",
+        "add_child",
+        "alias",
+        "along",
+        "animate",
+        "argc",
+        "args",
+        "argv",
+        "ascii",
+        "assert_comment",
+        "assert_desc",
+        "assert_file",
+        "assert_level",
+        "assert_line",
+        "assert_status",
+        "b",
+        "beautify_filename",
+        "beautify_name",
+        "begin",
+        "begin_style",
+        "bool",
+        "buf",
+        "callback",
+        "cargc",
+        "cargv",
+        "char",
+        "child",
+        "children",
+        "clock_gettime",
+        "cm",
+        "cmd",
+        "comment",
+        "def_depth",
+        "delta",
+        "desc",
+        "doctest_get_node_type",
+        "doctest_xml",
+        "double",
+        "dummy__",
+        "elapsed",
+        "elapsed_time",
+        "end",
+        "end_style",
+        "f",
+        "failed",
+        "failing",
+        "false",
+        "fancy",
+        "fclose",
+        "fd",
+        "fflush",
+        "file",
+        "find_bool_arg",
+        "fmemopen",
+        "fmt",
+        "fn",
+        "fp",
+        "fprintf",
+        "fputc",
+        "fputs",
+        "ftell",
+        "fwrite",
+        "get_last_child",
+        "get_spaces",
+        "h",
+        "help",
+        "i",
+        "icon",
+        "int",
+        "l",
+        "last",
+        "lbl",
+        "len",
+        "level",
+        "line",
+        "list",
+        "macro",
+        "main",
+        "msg",
+        "n",
+        "name",
+        "nanos",
+        "nanosleep",
+        "next",
+        "node",
+        "options",
+        "out_options",
+        "p",
+        "parent",
+        "passed",
+        "pfd",
+        "pos",
+        "prev",
+        "print_elapsed_time",
+        "print_label",
+        "print_node",
+        "print_text",
+        "print_wait",
+        "printer",
+        "printer_def",
+        "printer_def_begin",
+        "printer_def_end",
+        "printer_def_fail",
+        "printer_tracing",
+        "printer_xml_doctest",
+        "program",
+        "q",
+        "quiet",
+        "retner",
+        "rewind",
+        "run",
+        "s_buffer",
+        "seconds",
+        "secs",
+        "seed",
+        "short_filename",
+        "short_filenames",
+        "size_t",
+        "skip",
+        "srand",
+        "state",
+        "status",
+        "stdout",
+        "strrchr",
+        "strstr",
+        "style",
+        "suite",
+        "t",
+        "t0",
+        "temp",
+        "test",
+        "text",
+        "tfname",
+        "time",
+        "timespec",
+        "timespec_get",
+        "total",
+        "tp",
+        "trace",
+        "trace_depth",
+        "trace_spaces",
+        "true",
+        "ts",
+        "tv_nsec",
+        "tv_sec",
+        "type",
+        "u",
+        "unit",
+        "unit__begin",
+        "unit__breadcrumbs",
+        "unit__cmd",
+        "unit__echo",
+        "unit__end",
+        "unit__fail_impl",
+        "unit__fails",
+        "unit__fails_mem",
+        "unit__init_printers",
+        "unit__op_expl",
+        "unit__op_nexpl",
+        "unit__options",
+        "unit__opts",
+        "unit__parse_args",
+        "unit__prepare_assert",
+        "unit__printers",
+        "unit__setup_args",
+        "unit__sleep",
+        "unit__spaces",
+        "unit__time",
+        "unit__vbprintf",
+        "unit_cur",
+        "unit_internals",
+        "unit_main",
+        "unit_printer",
+        "unit_run_options",
+        "unit_spaces",
+        "unit_test",
+        "unit_tests",
+        "v",
+        "va_end",
+        "va_list",
+        "va_start",
+        "val",
+        "var",
+        "version",
+        "void",
+        "vsnprintf",
+        "w",
+        "x"
+      ],
+      "defs": [
+        {
+          "name": "unit__options",
+          "kind": "struct",
+          "line": 136
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 142
+        },
+        {
+          "name": "unit__options",
+          "kind": "struct",
+          "line": 150
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 155
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 156
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 157
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 176
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 177
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 179
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 193
+        },
+        {
+          "name": "unit_printer",
+          "kind": "struct",
+          "line": 195
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 196
+        },
+        {
+          "name": "unit_printer",
+          "kind": "struct",
+          "line": 198
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 201
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 203
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 207
+        },
+        {
+          "name": "* fmemopen(void* buf, size_t len, const char* type)",
+          "kind": "function",
+          "line": 390
+        },
+        {
+          "name": "* icon(int type)",
+          "kind": "function",
+          "line": 454
+        },
+        {
+          "name": "unit__sleep(double seconds)",
+          "kind": "function",
+          "line": 476
+        },
+        {
+          "name": "timespec",
+          "kind": "struct",
+          "line": 480
+        },
+        {
+          "name": "print_wait(FILE* f)",
+          "kind": "function",
+          "line": 485
+        },
+        {
+          "name": "begin_style(FILE* file, const char* style)",
+          "kind": "function",
+          "line": 492
+        },
+        {
+          "name": "end_style(FILE* file)",
+          "kind": "function",
+          "line": 498
+        },
+        {
+          "name": "print_text(FILE* file, const char* text, const char* style)",
+          "kind": "function",
+          "line": 504
+        },
+        {
+          "name": "* get_spaces(int n)",
+          "kind": "function",
+          "line": 524
+        },
+        {
+          "name": "print_elapsed_time(FILE* f, double elapsed_time)",
+          "kind": "function",
+          "line": 531
+        },
+        {
+          "name": "* beautify_name(const char* name)",
+          "kind": "function",
+          "line": 539
+        },
+        {
+          "name": "* short_filename(const char* file)",
+          "kind": "function",
+          "line": 543
+        },
+        {
+          "name": "* beautify_filename(const char* file)",
+          "kind": "function",
+          "line": 553
+        },
+        {
+          "name": "print_label(FILE* f, struct unit_test* node)",
+          "kind": "function",
+          "line": 557
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 557
+        },
+        {
+          "name": "printer_def_begin(struct unit_test* unit)",
+          "kind": "function",
+          "line": 593
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 593
+        },
+        {
+          "name": "* unit__spaces(int delta)",
+          "kind": "function",
+          "line": 602
+        },
+        {
+          "name": "print_node(struct unit_test* node)",
+          "kind": "function",
+          "line": 606
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 606
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 624
+        },
+        {
+          "name": "printer_def_end(struct unit_test* unit)",
+          "kind": "function",
+          "line": 630
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 630
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 647
+        },
+        {
+          "name": "unit__breadcrumbs(FILE* f, struct unit_test* test)",
+          "kind": "function",
+          "line": 662
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 662
+        },
+        {
+          "name": "printer_def_fail(struct unit_test* unit, const char* msg)",
+          "kind": "function",
+          "line": 670
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 670
+        },
+        {
+          "name": "printer_def(int cmd, struct unit_test* unit, const char* msg)",
+          "kind": "function",
+          "line": 698
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 698
+        },
+        {
+          "name": "* trace_spaces(int delta)",
+          "kind": "function",
+          "line": 724
+        },
+        {
+          "name": "printer_tracing(int cmd, struct unit_test* unit, const char* msg)",
+          "kind": "function",
+          "line": 728
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 728
+        },
+        {
+          "name": "* doctest_get_node_type(struct unit_test* node)",
+          "kind": "function",
+          "line": 775
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 775
+        },
+        {
+          "name": "printer_xml_doctest(int cmd, struct unit_test* node, const char* msg)",
+          "kind": "function",
+          "line": 785
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 785
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 799
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 846
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 847
+        },
+        {
+          "name": "* unit__vbprintf(const char* fmt, va_list args)",
+          "kind": "function",
+          "line": 850
+        },
+        {
+          "name": "unit_printer",
+          "kind": "struct",
+          "line": 880
+        },
+        {
+          "name": "unit__prepare_assert(int level, const char* file, int line, const char* comment, const char* desc)",
+          "kind": "function",
+          "line": 885
+        },
+        {
+          "name": "unit__fail_impl(const char* fmt, ...)",
+          "kind": "function",
+          "line": 901
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 910
+        },
+        {
+          "name": "unit__time(double prev)",
+          "kind": "function",
+          "line": 943
+        },
+        {
+          "name": "timespec",
+          "kind": "struct",
+          "line": 948
+        },
+        {
+          "name": "* get_last_child(struct unit_test* children)",
+          "kind": "function",
+          "line": 961
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 961
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 961
+        },
+        {
+          "name": "add_child(struct unit_test* parent, struct unit_test* child)",
+          "kind": "function",
+          "line": 968
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 968
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 968
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 971
+        },
+        {
+          "name": "unit__begin(struct unit_test* unit)",
+          "kind": "function",
+          "line": 982
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 982
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 994
+        },
+        {
+          "name": "unit__end(struct unit_test* unit)",
+          "kind": "function",
+          "line": 1003
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 1003
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 1008
+        },
+        {
+          "name": "unit__echo(const char* msg)",
+          "kind": "function",
+          "line": 1017
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 1021
+        },
+        {
+          "name": "unit__init_printers(void)",
+          "kind": "function",
+          "line": 1023
+        },
+        {
+          "name": "unit_printer",
+          "kind": "struct",
+          "line": 1024
+        },
+        {
+          "name": "unit__cmd(struct unit_run_options options)",
+          "kind": "function",
+          "line": 1044
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 1044
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 1054
+        },
+        {
+          "name": "unit_main(struct unit_run_options options)",
+          "kind": "function",
+          "line": 1063
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 1063
+        },
+        {
+          "name": "unit_test",
+          "kind": "struct",
+          "line": 1075
+        },
+        {
+          "name": "find_bool_arg(int argc, const char** argv, int* var, const char* name, const char* alias)",
+          "kind": "function",
+          "line": 1087
+        },
+        {
+          "name": "unit__parse_args(int argc, const char** argv, struct unit_run_options* out_options)",
+          "kind": "function",
+          "line": 1106
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 1106
+        },
+        {
+          "name": "unit__setup_args(int argc, const char** argv, struct unit_run_options* out_options)",
+          "kind": "function",
+          "line": 1119
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 1119
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 1120
+        },
+        {
+          "name": "main(int argc, const char** argv)",
+          "kind": "function",
+          "line": 1134
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 1135
+        },
+        {
+          "name": "(unit_internals)",
+          "kind": "function",
+          "line": 1144
+        },
+        {
+          "name": "(beautify_filename)",
+          "kind": "function",
+          "line": 1145
+        },
+        {
+          "name": "(beautify_name)",
+          "kind": "function",
+          "line": 1162
+        },
+        {
+          "name": "(get_spaces)",
+          "kind": "function",
+          "line": 1170
+        },
+        {
+          "name": "(find_bool_arg)",
+          "kind": "function",
+          "line": 1178
+        },
+        {
+          "name": "(unit__parse_args)",
+          "kind": "function",
+          "line": 1196
+        },
+        {
+          "name": "unit_run_options",
+          "kind": "struct",
+          "line": 1198
+        }
+      ],
+      "id": "include/unit.h"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "VECTOR_H",
+        "count",
+        "elem",
+        "elem_size",
+        "elems",
+        "idx",
+        "size",
+        "size_t",
+        "vec",
+        "vector",
+        "vector_alloc",
+        "vector_free",
+        "vector_get",
+        "vector_init",
+        "vector_set",
+        "void"
+      ],
+      "defs": [
+        {
+          "name": "vector",
+          "kind": "struct",
+          "line": 6
+        }
+      ],
+      "id": "example/vector.h"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "DESCRIBE",
+        "ECHO",
+        "IT",
+        "IT_VEC",
+        "REQUIRE",
+        "REQUIRE_EQ",
+        "SUITE",
+        "UNIT_MAIN",
+        "UNIT_NO_TIME",
+        "binary",
+        "char",
+        "count",
+        "el",
+        "elem",
+        "elem_size",
+        "elems",
+        "fail",
+        "failing",
+        "free",
+        "idx",
+        "int",
+        "memcpy",
+        "memset",
+        "name",
+        "op",
+        "ptr",
+        "realloc",
+        "size",
+        "size_t",
+        "true",
+        "vec",
+        "vector",
+        "vector_alloc",
+        "vector_free",
+        "vector_get",
+        "vector_init",
+        "vector_set",
+        "void"
+      ],
+      "defs": [
+        {
+          "name": "vector_init(vector* vec, size_t elem_size)",
+          "kind": "function",
+          "line": 4
+        },
+        {
+          "name": "vector_free(vector* vec)",
+          "kind": "function",
+          "line": 11
+        },
+        {
+          "name": "vector_alloc(vector* vec, size_t count)",
+          "kind": "function",
+          "line": 15
+        },
+        {
+          "name": "vector_set(vector* vec, size_t idx, void* elem)",
+          "kind": "function",
+          "line": 27
+        },
+        {
+          "name": "* vector_get(vector* vec, size_t idx)",
+          "kind": "function",
+          "line": 37
+        },
+        {
+          "name": "(vector)",
+          "kind": "function",
+          "line": 50
+        },
+        {
+          "name": "(vector_set)",
+          "kind": "function",
+          "line": 87
+        },
+        {
+          "name": "(vector_get)",
+          "kind": "function",
+          "line": 102
+        }
+      ],
+      "id": "example/vector.c"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "DESCRIBE",
+        "ECHO",
+        "FILE",
+        "IT",
+        "NO_UNIX_DEV_ZERO",
+        "REQUIRE_EQ",
+        "REQUIRE_NE",
+        "SUITE",
+        "_WIN32",
+        "__EMSCRIPTEN__",
+        "buf",
+        "bytes_read",
+        "char",
+        "executed_times",
+        "f",
+        "fclose",
+        "files",
+        "fopen",
+        "fread",
+        "fwrite",
+        "r",
+        "remove",
+        "size_t",
+        "skip",
+        "str",
+        "testfile",
+        "w"
+      ],
+      "defs": [
+        {
+          "name": "(files)",
+          "kind": "function",
+          "line": 11
+        }
+      ],
+      "id": "example/test_files.c"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": "example/CMakeLists.txt"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": "docs/requirements.txt"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": "docs/index.rst"
+    },
+    {
+      "tier": "deep",
+      "lang": "python",
+      "idents": [
+        "CLexer",
+        "True",
+        "__file__",
+        "_build",
+        "_static",
+        "_templates",
+        "abspath",
+        "app",
+        "author",
+        "breathe",
+        "breathe_default_project",
+        "breathe_projects",
+        "c",
+        "c_cpp",
+        "call",
+        "connect",
+        "copyright",
+        "default",
+        "dirname",
+        "doxdir",
+        "eliasku",
+        "exclude_patterns",
+        "extensions",
+        "generate_doxygen_xml",
+        "highlighting",
+        "html_static_path",
+        "html_theme",
+        "index",
+        "lexers",
+        "master_doc",
+        "os",
+        "path",
+        "project",
+        "pygments",
+        "pygments_style",
+        "setup",
+        "shell",
+        "sphinx",
+        "startinline",
+        "subprocess",
+        "templates_path",
+        "unit"
+      ],
+      "defs": [
+        {
+          "name": "generate_doxygen_xml",
+          "kind": "function",
+          "line": 17
+        },
+        {
+          "name": "setup",
+          "kind": "function",
+          "line": 76
+        }
+      ],
+      "id": "docs/conf.py"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": "docs/api.rst"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": "codecov.yml"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": "README.md"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": "CMakeLists.txt"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": "CHANGELOG.md"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": ".github/workflows/build.yml"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": ".changeset/three-beds-yell.md"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": ".changeset/rare-squids-hang.md"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": ".changeset/metal-bags-burn.md"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": ".changeset/config.json"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": ".changeset/README.md"
+    }
+  ],
+  "edges": [
+    {
+      "kind": "import",
+      "source": "scripts/test.js",
+      "target": "scripts/amalgamate.js"
+    },
+    {
+      "kind": "import",
+      "source": "scripts/test-wasm.js",
+      "target": "scripts/amalgamate.js"
+    }
+  ]
+}
