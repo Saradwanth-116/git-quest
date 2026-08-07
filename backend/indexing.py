@@ -1,0 +1,55 @@
+"""
+This is diagram box #1: GitHub repo -> Indexing pipeline -> Knowledge base.
+
+index_repo() is the one function everything else depends on. Run it once per
+repo before using any other module.
+"""
+from github_client import fetch_repo_files, parse_repo_url
+from embeddings import chunk_text, embed_texts
+from vector_store import add_chunks
+
+
+def index_repo(repo_url: str) -> dict:
+    """
+    Fetches every indexable file in the repo, chunks it, embeds the chunks,
+    and stores them in the vector store under this repo's collection.
+
+    Returns a small summary dict so the caller (e.g. an API endpoint) can
+    show progress: {"files_indexed": 42, "chunks_created": 310}
+    """
+    repo_url = parse_repo_url(repo_url)
+    files = fetch_repo_files(repo_url)
+
+    all_chunks: list[str] = []
+    all_metadatas: list[dict] = []
+    all_ids: list[str] = []
+
+    for file in files:
+        chunks = chunk_text(file["content"])
+        for i, chunk in enumerate(chunks):
+            all_chunks.append(chunk)
+            all_metadatas.append({
+                "path": file["path"],
+                "type": file["type"],
+                "chunk_index": i,
+            })
+            all_ids.append(f"{file['path']}::{i}")
+
+    if not all_chunks:
+        return {"files_indexed": 0, "chunks_created": 0}
+
+    # OpenAI's embeddings endpoint accepts batches — send in groups of 100
+    # to stay well under request size limits.
+    batch_size = 100
+    for start in range(0, len(all_chunks), batch_size):
+        end = start + batch_size
+        batch_embeddings = embed_texts(all_chunks[start:end])
+        add_chunks(
+            repo_url=repo_url,
+            ids=all_ids[start:end],
+            embeddings=batch_embeddings,
+            documents=all_chunks[start:end],
+            metadatas=all_metadatas[start:end],
+        )
+
+    return {"files_indexed": len(files), "chunks_created": len(all_chunks)}
