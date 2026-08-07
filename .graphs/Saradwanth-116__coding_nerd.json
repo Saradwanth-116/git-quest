@@ -1,0 +1,882 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "tier": "deep",
+      "lang": "python",
+      "idents": [
+        "True",
+        "good",
+        "input",
+        "passs",
+        "print",
+        "sleep",
+        "t",
+        "time"
+      ],
+      "defs": [],
+      "id": "works on python/password_checker.py"
+    },
+    {
+      "tier": "deep",
+      "lang": "python",
+      "idents": [
+        "DataFrame",
+        "GEE",
+        "True",
+        "a",
+        "b",
+        "c",
+        "d",
+        "iloc",
+        "input",
+        "int",
+        "menu",
+        "pandas",
+        "pd",
+        "print",
+        "randint",
+        "random",
+        "range",
+        "read_csv",
+        "sleep",
+        "t",
+        "time",
+        "what"
+      ],
+      "defs": [],
+      "id": "works on python/coffee_shop/coffee_shop_menu.py"
+    },
+    {
+      "tier": "deep",
+      "lang": "python",
+      "idents": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "print",
+        "randint",
+        "random",
+        "sleep",
+        "str",
+        "time"
+      ],
+      "defs": [],
+      "id": "works on python/OTP_generator.py"
+    },
+    {
+      "tier": "deep",
+      "lang": "python",
+      "idents": [
+        "a",
+        "i",
+        "input",
+        "int",
+        "print",
+        "range"
+      ],
+      "defs": [],
+      "id": "work on loops/work on triangles/right_inverted.py"
+    },
+    {
+      "tier": "deep",
+      "lang": "python",
+      "idents": [
+        "a",
+        "i",
+        "input",
+        "int",
+        "print",
+        "range"
+      ],
+      "defs": [],
+      "id": "work on loops/work on triangles/right_angled.py"
+    },
+    {
+      "tier": "deep",
+      "lang": "python",
+      "idents": [
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        "a",
+        "end",
+        "i",
+        "input",
+        "int",
+        "li",
+        "n",
+        "print",
+        "range",
+        "strr"
+      ],
+      "defs": [],
+      "id": "work on loops/work on triangles/letter_rignt_triangle_inv.py"
+    },
+    {
+      "tier": "deep",
+      "lang": "python",
+      "idents": [
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        "a",
+        "end",
+        "i",
+        "input",
+        "int",
+        "li",
+        "n",
+        "print",
+        "range",
+        "strr"
+      ],
+      "defs": [],
+      "id": "work on loops/work on triangles/letter_rignt_triangle.py"
+    },
+    {
+      "tier": "deep",
+      "lang": "python",
+      "idents": [
+        "a",
+        "i",
+        "input",
+        "int",
+        "print",
+        "range"
+      ],
+      "defs": [],
+      "id": "work on loops/work on triangles/equivalent_inverted.py"
+    },
+    {
+      "tier": "deep",
+      "lang": "python",
+      "idents": [
+        "a",
+        "i",
+        "input",
+        "int",
+        "print",
+        "range"
+      ],
+      "defs": [],
+      "id": "work on loops/work on triangles/equivalent.py"
+    },
+    {
+      "tier": "deep",
+      "lang": "python",
+      "idents": [],
+      "defs": [],
+      "id": "work on loops/work on triangles/digit_right_trianglr_inv.py"
+    },
+    {
+      "tier": "deep",
+      "lang": "python",
+      "idents": [
+        "a",
+        "end",
+        "i",
+        "input",
+        "int",
+        "j",
+        "n",
+        "print",
+        "range"
+      ],
+      "defs": [],
+      "id": "work on loops/work on triangles/digit_right_trianglr.py"
+    },
+    {
+      "tier": "deep",
+      "lang": "python",
+      "idents": [
+        "a",
+        "end",
+        "i",
+        "input",
+        "int",
+        "j",
+        "n",
+        "print",
+        "range"
+      ],
+      "defs": [],
+      "id": "work on loops/work on triangles/digi_right_rowwise.py"
+    },
+    {
+      "tier": "deep",
+      "lang": "python",
+      "idents": [
+        "a",
+        "i",
+        "input",
+        "int",
+        "print",
+        "range"
+      ],
+      "defs": [],
+      "id": "work on loops/work on squares/square_empty.py"
+    },
+    {
+      "tier": "deep",
+      "lang": "python",
+      "idents": [
+        "a",
+        "i",
+        "input",
+        "int",
+        "print",
+        "range"
+      ],
+      "defs": [],
+      "id": "work on loops/work on squares/square.py"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "arr",
+        "b",
+        "i",
+        "int",
+        "main",
+        "printf",
+        "scanf"
+      ],
+      "defs": [
+        {
+          "name": "main()",
+          "kind": "function",
+          "line": 2
+        }
+      ],
+      "id": "sorting/selection_sort.c"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": "sorting/inputting,sorting,finding_an_element_in_an_array.txt"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "arr",
+        "b",
+        "i",
+        "int",
+        "j",
+        "main",
+        "printf",
+        "scanf",
+        "temp"
+      ],
+      "defs": [
+        {
+          "name": "main()",
+          "kind": "function",
+          "line": 2
+        }
+      ],
+      "id": "sorting/bubble_sort.c"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "arr",
+        "b",
+        "i",
+        "int",
+        "main",
+        "printf",
+        "scanf",
+        "target"
+      ],
+      "defs": [
+        {
+          "name": "main()",
+          "kind": "function",
+          "line": 2
+        }
+      ],
+      "id": "searching/linear_search.c"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "arr",
+        "b",
+        "d",
+        "high",
+        "i",
+        "int",
+        "j",
+        "low",
+        "main",
+        "mid",
+        "printf",
+        "scanf",
+        "temp"
+      ],
+      "defs": [
+        {
+          "name": "main()",
+          "kind": "function",
+          "line": 2
+        }
+      ],
+      "id": "searching/binary_search.c"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": "files/file operations/two.txt"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": "files/file operations/one.txt"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": "files/file operations/final.txt"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "EOF",
+        "FILE",
+        "a",
+        "char",
+        "details",
+        "fclose",
+        "fgetc",
+        "fopen",
+        "fprintf",
+        "fputc",
+        "helper",
+        "int",
+        "main",
+        "merge",
+        "one",
+        "r",
+        "two",
+        "w"
+      ],
+      "defs": [
+        {
+          "name": "main()",
+          "kind": "function",
+          "line": 3
+        }
+      ],
+      "id": "files/file operations/files.c"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "MAX",
+        "breaker",
+        "choice",
+        "creation",
+        "i",
+        "int",
+        "main",
+        "pop",
+        "printf",
+        "push",
+        "scanf",
+        "stack_arr",
+        "top",
+        "value",
+        "void"
+      ],
+      "defs": [
+        {
+          "name": "creation()",
+          "kind": "function",
+          "line": 5
+        },
+        {
+          "name": "push()",
+          "kind": "function",
+          "line": 33
+        },
+        {
+          "name": "pop()",
+          "kind": "function",
+          "line": 44
+        },
+        {
+          "name": "main()",
+          "kind": "function",
+          "line": 54
+        }
+      ],
+      "id": "dsa/stacks.c"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "MAX",
+        "bottom",
+        "creation",
+        "data",
+        "display",
+        "i",
+        "int",
+        "isFull",
+        "main",
+        "pop",
+        "printf",
+        "que_arr",
+        "scanf",
+        "top",
+        "void"
+      ],
+      "defs": [
+        {
+          "name": "creation()",
+          "kind": "function",
+          "line": 6
+        },
+        {
+          "name": "pop()",
+          "kind": "function",
+          "line": 16
+        },
+        {
+          "name": "display()",
+          "kind": "function",
+          "line": 24
+        },
+        {
+          "name": "isFull()",
+          "kind": "function",
+          "line": 37
+        },
+        {
+          "name": "main ()",
+          "kind": "function",
+          "line": 45
+        }
+      ],
+      "id": "dsa/queues.c"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "MAX",
+        "Queue",
+        "arr",
+        "create",
+        "data",
+        "end",
+        "front",
+        "i",
+        "initQueue",
+        "int",
+        "main",
+        "pop",
+        "printf",
+        "q",
+        "rear",
+        "s",
+        "scanf",
+        "void"
+      ],
+      "defs": [
+        {
+          "name": "initQueue(Queue*q)",
+          "kind": "function",
+          "line": 11
+        },
+        {
+          "name": "create(Queue*s)",
+          "kind": "function",
+          "line": 15
+        },
+        {
+          "name": "pop(Queue*s)",
+          "kind": "function",
+          "line": 34
+        },
+        {
+          "name": "main()",
+          "kind": "function",
+          "line": 50
+        }
+      ],
+      "id": "dsa/queue_adt.c"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "NULL",
+        "choice",
+        "count",
+        "creation",
+        "current",
+        "data",
+        "delete",
+        "end",
+        "free",
+        "head",
+        "i",
+        "insert",
+        "int",
+        "link",
+        "main",
+        "malloc",
+        "midd",
+        "n",
+        "node",
+        "pos",
+        "printer",
+        "printf",
+        "ptr",
+        "scanf",
+        "start",
+        "temp",
+        "traverse",
+        "void"
+      ],
+      "defs": [
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 3
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 5
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 8
+        },
+        {
+          "name": "creation()",
+          "kind": "function",
+          "line": 9
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 10
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 16
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 16
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 16
+        },
+        {
+          "name": "traverse()",
+          "kind": "function",
+          "line": 30
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 31
+        },
+        {
+          "name": "insert()",
+          "kind": "function",
+          "line": 48
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 50
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 51
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 57
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 57
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 57
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 66
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 66
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 66
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 77
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 77
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 77
+        },
+        {
+          "name": "delete()",
+          "kind": "function",
+          "line": 99
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 101
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 102
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 106
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 115
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 123
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 124
+        },
+        {
+          "name": "main()",
+          "kind": "function",
+          "line": 154
+        }
+      ],
+      "id": "dsa/linked_list.c"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "creation",
+        "data",
+        "head",
+        "i",
+        "int",
+        "link",
+        "link_prev",
+        "main",
+        "malloc",
+        "n",
+        "newnode",
+        "node",
+        "printf",
+        "scanf",
+        "temp",
+        "traverse",
+        "void"
+      ],
+      "defs": [
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 3
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 6
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 7
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 10
+        },
+        {
+          "name": "creation()",
+          "kind": "function",
+          "line": 11
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 12
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 13
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 19
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 19
+        },
+        {
+          "name": "traverse()",
+          "kind": "function",
+          "line": 40
+        },
+        {
+          "name": "main()",
+          "kind": "function",
+          "line": 43
+        }
+      ],
+      "id": "dsa/doubly_LL.c"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "count",
+        "creation",
+        "data",
+        "head",
+        "i",
+        "int",
+        "link",
+        "main",
+        "malloc",
+        "n",
+        "newnode",
+        "node",
+        "printf",
+        "scanf",
+        "temp",
+        "traverse",
+        "void"
+      ],
+      "defs": [
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 3
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 5
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 7
+        },
+        {
+          "name": "creation()",
+          "kind": "function",
+          "line": 8
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 10
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 11
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 17
+        },
+        {
+          "name": "node",
+          "kind": "struct",
+          "line": 17
+        },
+        {
+          "name": "traverse()",
+          "kind": "function",
+          "line": 49
+        },
+        {
+          "name": "main()",
+          "kind": "function",
+          "line": 52
+        }
+      ],
+      "id": "dsa/circular_linked_list.c"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": "README.md"
+    }
+  ],
+  "edges": []
+}

@@ -22,6 +22,8 @@ def index_repo(repo_url: str) -> dict:
     files, total_files = fetch_repo_files(repo_url)
 
     # 1. Build the structural Graph database (Tree-Sitter + NetworkX)
+    graph_nodes_count = 0
+    graph_edges_count = 0
     try:
         from graph.extract import extract_file
         from graph.store import build_graph, save_graph
@@ -36,6 +38,8 @@ def index_repo(repo_url: str) -> dict:
             
         g = build_graph(file_nodes)
         save_graph(g, repo_id)
+        graph_nodes_count = len(g.nodes)
+        graph_edges_count = len(g.edges)
     except Exception as e:
         print(f"Warning: Failed to build structural graph: {e}")
 
@@ -56,7 +60,13 @@ def index_repo(repo_url: str) -> dict:
             all_ids.append(f"{file['path']}::{i}")
 
     if not all_chunks:
-        return {"files_indexed": 0, "chunks_created": 0, "total_repo_files": total_files}
+        return {
+            "files_indexed": 0, 
+            "chunks_created": 0, 
+            "total_repo_files": total_files,
+            "graph_nodes": graph_nodes_count,
+            "graph_edges": graph_edges_count
+        }
 
     # OpenAI's embeddings endpoint accepts batches — send in groups of 100
     # to stay well under request size limits.
@@ -72,4 +82,10 @@ def index_repo(repo_url: str) -> dict:
             metadatas=all_metadatas[start:end],
         )
 
-    return {"files_indexed": len(files), "chunks_created": len(all_chunks), "total_repo_files": total_files}
+    return {
+        "files_indexed": len(files), 
+        "chunks_created": len(all_chunks), 
+        "total_repo_files": total_files,
+        "graph_nodes": graph_nodes_count,
+        "graph_edges": graph_edges_count
+    }
