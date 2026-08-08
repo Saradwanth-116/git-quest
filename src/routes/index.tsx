@@ -1146,6 +1146,12 @@ function HealthPanel({ repoUrl }: { repoUrl: string }) {
               ✓ No mislabelled issues found in the scanned set.
             </div>
           )}
+
+          {result.scanned === 0 && (
+            <div className="p-4 rounded-md border border-border bg-card text-sm text-muted-foreground">
+              No open issues found in this repository to analyze.
+            </div>
+          )}
         </div>
       )}
     </div>
@@ -2085,23 +2091,34 @@ function B2BReviewerRoutingPanel({ repoUrl }: { repoUrl: string }) {
           className="mono w-full px-4 py-3 rounded-md bg-input border border-border text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition"
           disabled={loading}
         />
-        <div className="flex gap-2">
-          <input
-            type="text"
-            value={prAuthor}
-            onChange={(e) => setPrAuthor(e.target.value)}
-            placeholder="PR author to exclude (optional)"
-            className="flex-1 px-3 py-2 rounded-md bg-input border border-border text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition"
-            disabled={loading}
-          />
-          <input
-            type="number"
-            min={1}
-            value={topN}
-            onChange={(e) => setTopN(parseInt(e.target.value, 10) || 1)}
-            className="w-24 px-3 py-2 rounded-md bg-input border border-border text-sm focus:outline-none focus:ring-2 focus:ring-ring transition"
-            disabled={loading}
-          />
+        <div className="flex gap-2 items-end">
+          <div className="flex-1 flex flex-col">
+            <label className="mono text-[10px] text-muted-foreground mb-1 tracking-widest uppercase">
+              Exclude Author
+            </label>
+            <input
+              type="text"
+              value={prAuthor}
+              onChange={(e) => setPrAuthor(e.target.value)}
+              placeholder="PR author to exclude (optional)"
+              className="px-3 py-2 rounded-md bg-input border border-border text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition"
+              disabled={loading}
+            />
+          </div>
+          <div className="flex flex-col">
+            <label className="mono text-[10px] text-muted-foreground mb-1 tracking-widest uppercase">
+              Top N
+            </label>
+            <input
+              type="number"
+              min={1}
+              value={topN}
+              onChange={(e) => setTopN(parseInt(e.target.value, 10) || 1)}
+              className="w-24 px-3 py-2 rounded-md bg-input border border-border text-sm focus:outline-none focus:ring-2 focus:ring-ring transition"
+              disabled={loading}
+              title="Number of reviewers to suggest"
+            />
+          </div>
         </div>
         <button
           type="submit"

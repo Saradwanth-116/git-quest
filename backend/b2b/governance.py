@@ -24,11 +24,10 @@ from observability.metrics import get_metrics
 def _generation_model_note() -> str:
     if settings.OLLAMA_BASE_URL:
         return (
-            f"Council gate, issue recommendation, PR check, and issue health all use "
-            f"{settings.LLM_MODEL} via Groq. RAG Q&A (HyDE + answer synthesis) is "
-            f"currently configured to use {settings.OLLAMA_MODEL} via a local Ollama "
-            f"endpoint instead, because OLLAMA_BASE_URL is set — this is a real "
-            f"divergence from the 'one model' constraint, see B2B_AUDIT.md."
+            f"All generation calls are currently routed through the local Ollama endpoint. "
+            f"Council gate, issue recommendation, PR check, and issue health use {settings.LLM_MODEL}. "
+            f"RAG Q&A (HyDE + answer synthesis) uses {settings.OLLAMA_MODEL}. "
+            f"This is a divergence from the 'one model' constraint, see B2B_AUDIT.md."
         )
     return f"All generation calls use {settings.LLM_MODEL} via Groq."
 

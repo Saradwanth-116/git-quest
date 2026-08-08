@@ -1,0 +1,439 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "AF_INET",
+        "Client",
+        "EPOLLET",
+        "EPOLLIN",
+        "EPOLL_CTL_ADD",
+        "ERROR",
+        "EXIT_SUCCESS",
+        "F_GETFL",
+        "F_SETFL",
+        "HEADER_COUNT",
+        "HEADER_EXTRA_SIZE",
+        "HEADER_KEY_SIZE",
+        "HEADER_VALUE_SIZE",
+        "HTTPServer",
+        "HTTP_PATH_SIZE",
+        "HTTP_PORT",
+        "INADDR_ANY",
+        "INFO",
+        "KeyValue",
+        "L",
+        "LOG",
+        "LOG_ERR",
+        "LOG_INFO",
+        "LOG_OK",
+        "LUA_MULTRET",
+        "LUA_OK",
+        "MAX_CONNECTIONS",
+        "MIMETYPE_HTML",
+        "OK",
+        "O_NONBLOCK",
+        "REQUEST_HEADER_SIZE",
+        "Request",
+        "Response",
+        "SCRIPT_ENTRYPOINT",
+        "SCRIPT_FILENAME",
+        "SIGINT",
+        "SIGKILL",
+        "SIGQUIT",
+        "SIGTERM",
+        "SIG_BLOCK",
+        "SOCK_STREAM",
+        "STD_ERR",
+        "STD_OUT",
+        "TERM_CYAN",
+        "TERM_GREEN",
+        "_GNU_SOURCE",
+        "accept",
+        "addr",
+        "argc",
+        "argv",
+        "bind",
+        "body",
+        "body_size",
+        "body_sz",
+        "buff",
+        "c",
+        "char",
+        "client",
+        "client_free",
+        "client_worker",
+        "close",
+        "content",
+        "content_alloc_size",
+        "data",
+        "epoll_create1",
+        "epoll_ctl",
+        "epoll_event",
+        "epoll_wait",
+        "epollfd",
+        "err",
+        "ev",
+        "events",
+        "exit",
+        "fcntl",
+        "fd",
+        "fdsi",
+        "fflush",
+        "flags",
+        "free",
+        "h",
+        "header_count",
+        "headers",
+        "htons",
+        "http_read_request",
+        "http_reason",
+        "http_request",
+        "http_response_fmt",
+        "http_server_accept",
+        "http_server_listen",
+        "httpserver_free",
+        "httpserver_new",
+        "idx",
+        "inet_ntoa",
+        "int",
+        "ip",
+        "j",
+        "key",
+        "keyvalue_free",
+        "keyvalue_new",
+        "kv",
+        "listen",
+        "luaL_checkinteger",
+        "luaL_checklstring",
+        "luaL_dofile",
+        "luaL_newstate",
+        "luaL_openlibs",
+        "lua_Integer",
+        "lua_State",
+        "lua_close",
+        "lua_getglobal",
+        "lua_gettop",
+        "lua_init",
+        "lua_log_error",
+        "lua_newtable",
+        "lua_pcall",
+        "lua_pop",
+        "lua_pushstring",
+        "lua_setfield",
+        "lua_tostring",
+        "main",
+        "malloc",
+        "mask",
+        "maxconnections",
+        "mem_alloc",
+        "mem_free",
+        "memory_alloc_count",
+        "memory_alloc_size",
+        "memset",
+        "method",
+        "mimetype",
+        "msg",
+        "n",
+        "nfds",
+        "ntohs",
+        "p",
+        "panic",
+        "path",
+        "port",
+        "prev",
+        "protocol",
+        "ptr",
+        "quit_server",
+        "r",
+        "read",
+        "reading_key",
+        "reason",
+        "recv",
+        "req",
+        "request_add_header",
+        "request_buff",
+        "request_buff_size",
+        "request_free",
+        "request_method",
+        "request_new",
+        "request_sz",
+        "request_to_lua_arg",
+        "resp",
+        "response_free",
+        "response_from_lua",
+        "response_html_new",
+        "response_write",
+        "s",
+        "s_addr",
+        "server",
+        "server_addr",
+        "sfd",
+        "sig_ev",
+        "sigaddset",
+        "sigemptyset",
+        "signalfd",
+        "signalfd_siginfo",
+        "sigprocmask",
+        "sigset_t",
+        "sin_addr",
+        "sin_family",
+        "sin_port",
+        "size",
+        "size_t",
+        "sockaddr",
+        "sockaddr_in",
+        "socket",
+        "socket_fd",
+        "socklen_t",
+        "sprintf",
+        "srv",
+        "sscanf",
+        "ssi_signo",
+        "ssize_t",
+        "status",
+        "stderr",
+        "stdout",
+        "strcpy",
+        "stream",
+        "strlen",
+        "strncpy",
+        "strtok",
+        "uint32_t",
+        "value",
+        "void",
+        "write",
+        "x"
+      ],
+      "defs": [
+        {
+          "name": "*mem_alloc(size_t size)",
+          "kind": "function",
+          "line": 33
+        },
+        {
+          "name": "mem_free(void *ptr, size_t size)",
+          "kind": "function",
+          "line": 39
+        },
+        {
+          "name": "KeyValue",
+          "kind": "struct",
+          "line": 91
+        },
+        {
+          "name": "*keyvalue_new(const char *s)",
+          "kind": "function",
+          "line": 96
+        },
+        {
+          "name": "keyvalue_free(KeyValue *kv)",
+          "kind": "function",
+          "line": 138
+        },
+        {
+          "name": "Request",
+          "kind": "struct",
+          "line": 142
+        },
+        {
+          "name": "request_add_header(Request *req, KeyValue *kv)",
+          "kind": "function",
+          "line": 150
+        },
+        {
+          "name": "*request_new(char *http_request)",
+          "kind": "function",
+          "line": 156
+        },
+        {
+          "name": "request_free(Request *r)",
+          "kind": "function",
+          "line": 177
+        },
+        {
+          "name": "*http_reason(unsigned int status)",
+          "kind": "function",
+          "line": 187
+        },
+        {
+          "name": "Response",
+          "kind": "struct",
+          "line": 199
+        },
+        {
+          "name": "*response_html_new(\n        uint32_t status,\n        const char *body,\n        size_t body_size)",
+          "kind": "function",
+          "line": 209
+        },
+        {
+          "name": "response_free(Response *resp)",
+          "kind": "function",
+          "line": 233
+        },
+        {
+          "name": "*lua_init()",
+          "kind": "function",
+          "line": 239
+        },
+        {
+          "name": "request_to_lua_arg(lua_State *L, Request *r)",
+          "kind": "function",
+          "line": 246
+        },
+        {
+          "name": "*response_from_lua(lua_State *L)",
+          "kind": "function",
+          "line": 262
+        },
+        {
+          "name": "lua_log_error(lua_State *L)",
+          "kind": "function",
+          "line": 272
+        },
+        {
+          "name": "Client",
+          "kind": "struct",
+          "line": 279
+        },
+        {
+          "name": "sockaddr_in",
+          "kind": "struct",
+          "line": 281
+        },
+        {
+          "name": "client_free(Client *c)",
+          "kind": "function",
+          "line": 286
+        },
+        {
+          "name": "HTTPServer",
+          "kind": "struct",
+          "line": 292
+        },
+        {
+          "name": "sockaddr_in",
+          "kind": "struct",
+          "line": 294
+        },
+        {
+          "name": "*httpserver_new(int port)",
+          "kind": "function",
+          "line": 298
+        },
+        {
+          "name": "httpserver_free(HTTPServer *srv)",
+          "kind": "function",
+          "line": 307
+        },
+        {
+          "name": "http_server_listen(HTTPServer *srv, int maxconnections)",
+          "kind": "function",
+          "line": 317
+        },
+        {
+          "name": "sockaddr",
+          "kind": "struct",
+          "line": 320
+        },
+        {
+          "name": "*http_server_accept(HTTPServer *srv)",
+          "kind": "function",
+          "line": 330
+        },
+        {
+          "name": "sockaddr_in",
+          "kind": "struct",
+          "line": 333
+        },
+        {
+          "name": "sockaddr",
+          "kind": "struct",
+          "line": 335
+        },
+        {
+          "name": "*http_read_request(Client *client)",
+          "kind": "function",
+          "line": 348
+        },
+        {
+          "name": "response_write(Client *client, Response *resp)",
+          "kind": "function",
+          "line": 359
+        },
+        {
+          "name": "client_worker(Client *client)",
+          "kind": "function",
+          "line": 365
+        },
+        {
+          "name": "main(int argc, char **argv)",
+          "kind": "function",
+          "line": 390
+        },
+        {
+          "name": "signalfd_siginfo",
+          "kind": "struct",
+          "line": 396
+        },
+        {
+          "name": "epoll_event",
+          "kind": "struct",
+          "line": 416
+        }
+      ],
+      "id": "src/http.c"
+    },
+    {
+      "tier": "deep",
+      "lang": "c",
+      "idents": [
+        "Accepted",
+        "Conflict",
+        "Continue",
+        "Created",
+        "Forbidden",
+        "Found",
+        "Gone",
+        "HTTP_STATUS_CODE_TABLE_SIZE",
+        "HTTP_STATUS_H",
+        "Locked",
+        "OK",
+        "Processing",
+        "Unauthorized",
+        "char",
+        "http_status_codes_reason",
+        "http_status_reason",
+        "int",
+        "status_code"
+      ],
+      "defs": [
+        {
+          "name": "* http_status_reason(unsigned int status_code)",
+          "kind": "function",
+          "line": 525
+        }
+      ],
+      "id": "include/http_status.h"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": "README.md"
+    },
+    {
+      "tier": "unparseable",
+      "lang": null,
+      "idents": [],
+      "defs": [],
+      "id": "CMakeLists.txt"
+    }
+  ],
+  "edges": []
+}

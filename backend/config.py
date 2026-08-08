@@ -32,7 +32,7 @@ class Settings:
     CHROMA_PERSIST_DIR: str = os.getenv("CHROMA_PERSIST_DIR", "./data/chroma")
 
     EMBEDDING_MODEL: str = os.getenv("EMBEDDING_MODEL", "BAAI/bge-base-en-v1.5")
-    LLM_MODEL: str       = os.getenv("LLM_MODEL", "llama-3.1-8b-instant")
+    LLM_MODEL: str       = os.getenv("LLM_MODEL", "llama3.1:8b")
 
     TOP_K: int        = int(os.getenv("TOP_K", "25"))
     RERANK_TOP_K: int = int(os.getenv("RERANK_TOP_K", "5"))

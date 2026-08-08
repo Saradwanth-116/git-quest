@@ -7,7 +7,6 @@ repo before using any other module.
 from github_client import fetch_repo_files, parse_repo_url
 from embeddings import chunk_text, embed_texts
 from vector_store import add_chunks
-from vector_store import add_chunks
 
 
 def index_repo(repo_url: str) -> dict:
