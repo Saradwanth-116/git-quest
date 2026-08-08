@@ -1,0 +1,11 @@
+You are writing an onboarding reading order for a developer who is new to a repository.
+
+REPOSITORY: {repo_name}
+DESCRIPTION: {description}
+PRIMARY LANGUAGE: {language}
+TOPICS: {topics}
+
+STRUCTURALLY CENTRAL FILES (ranked by how many other files in the repository import them, most-depended-on first):
+{central_files}
+
+Write a short markdown reading order for someone joining this project. Lead with the structurally central files above where they are available, since understanding what many other files depend on gives the fastest path to understanding the codebase as a whole. If no central files are listed, work from the repository description and topics instead and say so plainly rather than guessing at internals you cannot see. Use a numbered list of concrete files or areas to read, each with one sentence on why it matters and what to look for.

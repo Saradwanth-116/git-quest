@@ -1,0 +1,17 @@
+name: "MUTAV2 (Mutagent)"
+team: "Saradwanth"
+description: >
+  An Agentic Development Lifecycle (ADL) orchestration platform featuring 
+  a semantic + structural (tree-sitter) hybrid retriever, an automated 
+  genetic-mutation prompt optimizer, and a B2B enterprise layer.
+tags:
+  - agentic-framework
+  - retrieval-augmented-generation
+  - ast-parsing
+  - evaluation-loop
+architecture:
+  - "FastAPI (Python) Backend"
+  - "React (TypeScript) Frontend"
+  - "Local BAAI/bge-base-en-v1.5 embeddings"
+  - "Tree-sitter AST Graph Extraction"
+  - "Mutagent Optimizer Loop"

@@ -1,0 +1,9 @@
+You are reviewing a pull request diff before it is submitted, using deterministic facts already computed about the diff plus the diff itself.
+
+CHECKLIST FACTS:
+{checklist}
+
+DIFF:
+{diff}
+
+Decide whether this change is ready to submit. Respond with a JSON object containing two fields: verdict, set to one of the strings ready, needs_changes or blocked, and rationale, a short explanation naming the specific fact or diff content that drove your decision.
