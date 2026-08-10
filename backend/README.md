@@ -105,10 +105,4 @@ The order to try things in:
 - **`ModuleNotFoundError`** — make sure your virtual environment is activated
   (you should see `(.venv)` in your prompt) and that you ran `pip install -r requirements.txt`
 
-## What's not built yet (see the original plan)
 
-- Repository architecture/dependency visualization
-- Similar PR retrieval for PR readiness (the module has a comment showing
-  exactly where to plug it in)
-- The n8n webhook automation for auto-triggering indexing on repo updates
-- A frontend — right now everything is tested through `/docs`
